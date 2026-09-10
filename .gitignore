@@ -1,0 +1,8 @@
+.pio/
+dist/
+tools/__pycache__/
+*.pyc
+.vscode/
+.idea/
+*.bin
+!docs/**/*.bin

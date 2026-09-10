@@ -1,0 +1,233 @@
+[
+  {
+    "phase": "write-power-100",
+    "label": "Set Target Power 100 W",
+    "write": {
+      "label": "Set Target Power 100 W",
+      "sent": "056400",
+      "ok": true,
+      "guard": {
+        "checked": true,
+        "allowed": true,
+        "modified": false,
+        "opcode": 5,
+        "opcodeName": "Set Target Power"
+      },
+      "response_hex": "800501",
+      "result": "Success",
+      "success": true,
+      "timeout": false,
+      "error": null
+    },
+    "pre": {
+      "samples": 23,
+      "windowMs": 12000,
+      "power": {
+        "mean": 23.7,
+        "min": 0.0,
+        "max": 28.0
+      },
+      "cadence": {
+        "mean": 55.8,
+        "min": 0.0,
+        "max": 65.0
+      },
+      "speed": {
+        "mean": 20.8,
+        "min": 0.0,
+        "max": 24.2
+      },
+      "heart_rate": {
+        "mean": 82.6,
+        "min": 81.0,
+        "max": 84.0
+      }
+    },
+    "post": {
+      "samples": 23,
+      "windowMs": 12082,
+      "power": {
+        "mean": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "cadence": {
+        "mean": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "speed": {
+        "mean": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "heart_rate": {
+        "mean": 81.8,
+        "min": 81.0,
+        "max": 84.0
+      }
+    },
+    "delta": {
+      "power": -23.7,
+      "resistance": null,
+      "cadence": -55.8,
+      "speed": -20.8
+    },
+    "felt": "",
+    "verdict": "wirkt — Power -23.7 W"
+  },
+  {
+    "phase": "write-level-10",
+    "label": "Set Target Resistance 10 (uint8)",
+    "write": {
+      "label": "Set Target Resistance 10 (uint8)",
+      "sent": "040A",
+      "ok": true,
+      "guard": {
+        "checked": true,
+        "allowed": true,
+        "modified": false,
+        "opcode": 4,
+        "opcodeName": "Set Target Resistance"
+      },
+      "response_hex": "800401",
+      "result": "Success",
+      "success": true,
+      "timeout": false,
+      "error": null
+    },
+    "pre": {
+      "samples": 23,
+      "windowMs": 12000,
+      "power": {
+        "mean": 10.6,
+        "min": 0.0,
+        "max": 25.0
+      },
+      "cadence": {
+        "mean": 25.7,
+        "min": 0.0,
+        "max": 59.0
+      },
+      "speed": {
+        "mean": 9.6,
+        "min": 0.0,
+        "max": 22.0
+      },
+      "heart_rate": {
+        "mean": 80.7,
+        "min": 79.0,
+        "max": 82.0
+      }
+    },
+    "post": {
+      "samples": 23,
+      "windowMs": 12086,
+      "power": {
+        "mean": 24.3,
+        "min": 24.0,
+        "max": 26.0
+      },
+      "cadence": {
+        "mean": 58.1,
+        "min": 57.0,
+        "max": 61.0
+      },
+      "speed": {
+        "mean": 21.6,
+        "min": 21.2,
+        "max": 22.7
+      },
+      "heart_rate": {
+        "mean": 81.0,
+        "min": 79.0,
+        "max": 82.0
+      }
+    },
+    "delta": {
+      "power": 13.7,
+      "resistance": null,
+      "cadence": 32.4,
+      "speed": 12.0
+    },
+    "felt": "",
+    "verdict": "wirkt — Power +13.7 W"
+  },
+  {
+    "phase": "write-level-10-wide",
+    "label": "Set Target Resistance 10,0 (sint16, 0,1er)",
+    "write": {
+      "label": "Set Target Resistance 10,0 (sint16, 0,1er)",
+      "sent": "046400",
+      "ok": true,
+      "guard": {
+        "checked": true,
+        "allowed": true,
+        "modified": false,
+        "opcode": 4,
+        "opcodeName": "Set Target Resistance"
+      },
+      "response_hex": "800401",
+      "result": "Success",
+      "success": true,
+      "timeout": false,
+      "error": null
+    },
+    "pre": {
+      "samples": 23,
+      "windowMs": 12000,
+      "power": {
+        "mean": 24.9,
+        "min": 24.0,
+        "max": 26.0
+      },
+      "cadence": {
+        "mean": 59.1,
+        "min": 57.0,
+        "max": 61.0
+      },
+      "speed": {
+        "mean": 22.0,
+        "min": 21.2,
+        "max": 22.7
+      },
+      "heart_rate": {
+        "mean": 81.6,
+        "min": 81.0,
+        "max": 82.0
+      }
+    },
+    "post": {
+      "samples": 23,
+      "windowMs": 12080,
+      "power": {
+        "mean": 88.9,
+        "min": 77.0,
+        "max": 108.0
+      },
+      "cadence": {
+        "mean": 51.2,
+        "min": 46.0,
+        "max": 59.0
+      },
+      "speed": {
+        "mean": 19.1,
+        "min": 17.1,
+        "max": 22.0
+      },
+      "heart_rate": {
+        "mean": 80.5,
+        "min": 79.0,
+        "max": 83.0
+      }
+    },
+    "delta": {
+      "power": 64.0,
+      "resistance": null,
+      "cadence": -7.9,
+      "speed": -2.9
+    },
+    "felt": "",
+    "verdict": "wirkt — Power +64.0 W"
+  }
+]

@@ -1,0 +1,767 @@
+{"seq": 1, "ts": 2186, "dir": "info", "link": -1, "phase": "idle", "msg": "probe ready"}
+{"seq": 2, "ts": 2259, "dir": "info", "link": -1, "phase": "idle", "msg": "boot"}
+{"seq": 3, "ts": 29981, "dir": "info", "link": 0, "phase": "idle", "msg": "link 0 up, 5 svc"}
+{"seq": 4, "ts": 29985, "dir": "info", "link": 0, "phase": "idle", "msg": "gatt 5 svc ftms=1"}
+{"seq": 5, "ts": 30099, "dir": "info", "link": 0, "phase": "idle", "msg": "gatt 5 svc ftms=1"}
+{"seq": 6, "ts": 30731, "dir": "info", "link": 0, "phase": "idle", "msg": "gatt 5 svc ftms=1"}
+{"seq": 7, "ts": 35881, "dir": "read", "link": 0, "phase": "idle", "uuid": "2AC9"}
+{"seq": 8, "ts": 37031, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A01", "hex": "0000", "len": 2}
+{"seq": 9, "ts": 38031, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A00", "hex": "5443313734", "len": 5}
+{"seq": 10, "ts": 47294, "dir": "info", "link": 0, "phase": "idle", "msg": "gatt 5 svc ftms=1"}
+{"seq": 11, "ts": 50331, "dir": "read", "link": 0, "phase": "idle", "uuid": "2AC9"}
+{"seq": 12, "ts": 51431, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A01", "hex": "0000", "len": 2}
+{"seq": 13, "ts": 52681, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A00", "hex": "5443313734", "len": 5}
+{"seq": 14, "ts": 56981, "dir": "info", "link": 0, "phase": "idle", "uuid": "2A05", "msg": "sub indicate"}
+{"seq": 15, "ts": 58431, "dir": "read", "link": 0, "phase": "idle", "uuid": "2B29", "hex": "00", "len": 1}
+{"seq": 16, "ts": 59631, "dir": "read", "link": 0, "phase": "idle", "uuid": "2B2A", "hex": "61601F5E99205411483C8D6342A4FFFA", "len": 16}
+{"seq": 17, "ts": 67131, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A29", "hex": "415352", "len": 3}
+{"seq": 18, "ts": 68231, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A24", "hex": "424C452D312E30", "len": 7}
+{"seq": 19, "ts": 69581, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A25", "hex": "312E302E302E302D4C45", "len": 10}
+{"seq": 20, "ts": 70781, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A27", "hex": "312E302E30", "len": 5}
+{"seq": 21, "ts": 72031, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A26", "hex": "362E312E32", "len": 5}
+{"seq": 22, "ts": 72831, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A28", "hex": "362E332E30", "len": 5}
+{"seq": 23, "ts": 76731, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A23", "hex": "123456FFFE9ABCDE", "len": 8}
+{"seq": 24, "ts": 77981, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A2A", "hex": "FFEEDDCCBBAA", "len": 6}
+{"seq": 25, "ts": 79281, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A50", "hex": "08888888888888", "len": 7}
+{"seq": 26, "ts": 94031, "dir": "read", "link": 0, "phase": "idle", "uuid": "2C01", "hex": "03806170702D312E332E342D32303231313231362E30303031", "len": 25}
+{"seq": 27, "ts": 101679, "dir": "info", "link": -1, "phase": "idle", "msg": "scan start"}
+{"seq": 28, "ts": 101710, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 3c:e7:64:41:6d:"}
+{"seq": 29, "ts": 101736, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 55' Crystal UHD"}
+{"seq": 30, "ts": 102056, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 14:4b:b7:09:9f:"}
+{"seq": 31, "ts": 102079, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 7c:37:38:7c:4b:"}
+{"seq": 32, "ts": 102245, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 66:78:72:a8:00:"}
+{"seq": 33, "ts": 102379, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv Wohnzimmer"}
+{"seq": 34, "ts": 102521, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv cd:9b:95:66:ca:"}
+{"seq": 35, "ts": 102587, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 59:08:1c:7c:4b:"}
+{"seq": 36, "ts": 102689, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 6c:70:cb:f0:08:"}
+{"seq": 37, "ts": 104528, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv f7:cb:3c:64:b4:"}
+{"seq": 38, "ts": 116735, "dir": "info", "link": -1, "phase": "idle", "msg": "scan stop"}
+{"seq": 39, "ts": 116820, "dir": "error", "link": -1, "phase": "idle", "msg": "runner fehler"}
+{"seq": 40, "ts": 116980, "dir": "write", "link": 0, "phase": "idle", "uuid": "2AD9", "hex": "0801", "len": 2, "msg": "panic stop"}
+{"seq": 41, "ts": 117140, "dir": "info", "link": 0, "phase": "idle", "msg": "link 0 down"}
+{"seq": 42, "ts": 148464, "dir": "info", "link": -1, "phase": "idle", "msg": "scan start"}
+{"seq": 43, "ts": 148643, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv cd:9b:95:66:ca:"}
+{"seq": 44, "ts": 148961, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 3c:e7:64:41:6d:"}
+{"seq": 45, "ts": 148972, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv TC174"}
+{"seq": 46, "ts": 148998, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 59:08:1c:7c:4b:"}
+{"seq": 47, "ts": 149015, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 66:78:72:a8:00:"}
+{"seq": 48, "ts": 149022, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv c8:a6:ef:99:a0:"}
+{"seq": 49, "ts": 149116, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 14:4b:b7:09:9f:"}
+{"seq": 50, "ts": 149164, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 7c:37:38:7c:4b:"}
+{"seq": 51, "ts": 150592, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 6c:70:cb:f0:08:"}
+{"seq": 52, "ts": 152650, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv f7:cb:3c:64:b4:"}
+{"seq": 53, "ts": 156311, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv Wohnzimmer"}
+{"seq": 54, "ts": 168534, "dir": "info", "link": -1, "phase": "idle", "msg": "scan stop"}
+{"seq": 55, "ts": 178070, "dir": "info", "link": -1, "phase": "idle", "msg": "scan start"}
+{"seq": 56, "ts": 178434, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 14:4b:b7:09:9f:"}
+{"seq": 57, "ts": 178720, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv c8:a6:ef:99:a0:"}
+{"seq": 58, "ts": 178733, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv f7:cb:3c:64:b4:"}
+{"seq": 59, "ts": 178743, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 3c:e7:64:41:6d:"}
+{"seq": 60, "ts": 178767, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv TC174"}
+{"seq": 61, "ts": 178915, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 6c:70:cb:f0:08:"}
+{"seq": 62, "ts": 178946, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 66:78:72:a8:00:"}
+{"seq": 63, "ts": 179391, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 7c:37:38:7c:4b:"}
+{"seq": 64, "ts": 179425, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv Wohnzimmer"}
+{"seq": 65, "ts": 179870, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 59:08:1c:7c:4b:"}
+{"seq": 66, "ts": 182729, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv cd:9b:95:66:ca:"}
+{"seq": 67, "ts": 190157, "dir": "info", "link": -1, "phase": "idle", "msg": "scan stop"}
+{"seq": 68, "ts": 192331, "dir": "info", "link": 0, "phase": "idle", "msg": "link 0 up, 5 svc"}
+{"seq": 69, "ts": 192334, "dir": "info", "link": 0, "phase": "idle", "msg": "gatt 5 svc ftms=1"}
+{"seq": 70, "ts": 192481, "dir": "read", "link": 0, "phase": "idle", "uuid": "2ACC", "hex": "A646000004200000", "len": 8}
+{"seq": 71, "ts": 192681, "dir": "read", "link": 0, "phase": "idle", "uuid": "2AD6", "hex": "0A00A0000A00", "len": 6}
+{"seq": 72, "ts": 192881, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A00", "hex": "5443313734", "len": 5}
+{"seq": 73, "ts": 193081, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A29", "hex": "415352", "len": 3}
+{"seq": 74, "ts": 193281, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A24", "hex": "424C452D312E30", "len": 7}
+{"seq": 75, "ts": 193481, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A26", "hex": "362E312E32", "len": 5}
+{"seq": 76, "ts": 193722, "dir": "error", "link": -1, "phase": "idle", "msg": "runner fehler"}
+{"seq": 77, "ts": 193880, "dir": "write", "link": 0, "phase": "idle", "uuid": "2AD9", "hex": "0801", "len": 2, "msg": "panic stop"}
+{"seq": 78, "ts": 193981, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B74098200CA04001C00050000000000D900", "len": 19}
+{"seq": 79, "ts": 194040, "dir": "info", "link": 0, "phase": "idle", "msg": "link 0 down"}
+{"seq": 80, "ts": 38997, "dir": "info", "link": -1, "phase": "idle", "msg": "scan start"}
+{"seq": 81, "ts": 39014, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 13:33:c3:04:f8:"}
+{"seq": 82, "ts": 39024, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 53:49:12:1e:84:"}
+{"seq": 83, "ts": 39118, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809007409410000001C0054", "len": 12}
+{"seq": 84, "ts": 39568, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0054", "len": 12}
+{"seq": 85, "ts": 39837, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv f7:cb:3c:64:b4:"}
+{"seq": 86, "ts": 39881, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv c8:a6:ef:99:a0:"}
+{"seq": 87, "ts": 39895, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 66:78:72:a8:00:"}
+{"seq": 88, "ts": 40118, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0054", "len": 12}
+{"seq": 89, "ts": 40357, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 1f:ca:45:c3:63:"}
+{"seq": 90, "ts": 40412, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 7c:37:38:7c:4b:"}
+{"seq": 91, "ts": 40618, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0053", "len": 12}
+{"seq": 92, "ts": 41118, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0053", "len": 12}
+{"seq": 93, "ts": 41668, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0053", "len": 12}
+{"seq": 94, "ts": 42168, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0053", "len": 12}
+{"seq": 95, "ts": 42718, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0053", "len": 12}
+{"seq": 96, "ts": 42749, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 6c:70:cb:f0:08:"}
+{"seq": 97, "ts": 43148, "dir": "info", "link": -1, "phase": "idle", "msg": "scan stop"}
+{"seq": 98, "ts": 43218, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0052", "len": 12}
+{"seq": 99, "ts": 43244, "dir": "info", "link": -1, "phase": "idle", "msg": "scan start"}
+{"seq": 100, "ts": 43328, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv c8:a6:ef:99:a0:"}
+{"seq": 101, "ts": 43330, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 53:49:12:1e:84:"}
+{"seq": 102, "ts": 43645, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 13:33:c3:04:f8:"}
+{"seq": 103, "ts": 43768, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0052", "len": 12}
+{"seq": 104, "ts": 43788, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 1f:ca:45:c3:63:"}
+{"seq": 105, "ts": 43988, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 6c:70:cb:f0:08:"}
+{"seq": 106, "ts": 43997, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 7c:37:38:7c:4b:"}
+{"seq": 107, "ts": 44122, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv Polar H9 1DF6CA"}
+{"seq": 108, "ts": 44287, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 66:78:72:a8:00:"}
+{"seq": 109, "ts": 44318, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0052", "len": 12}
+{"seq": 110, "ts": 44468, "dir": "info", "link": 0, "phase": "idle", "uuid": "2AD2", "msg": "sub notify"}
+{"seq": 111, "ts": 44818, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0052", "len": 12}
+{"seq": 112, "ts": 44818, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC4098600FC05001D000700000000520C01", "len": 19}
+{"seq": 113, "ts": 45318, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0051", "len": 12}
+{"seq": 114, "ts": 45368, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC4098600FF05001D000700000000510D01", "len": 19}
+{"seq": 115, "ts": 45868, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0051", "len": 12}
+{"seq": 116, "ts": 45868, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC40986000206001D000700000000510D01", "len": 19}
+{"seq": 117, "ts": 46368, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0051", "len": 12}
+{"seq": 118, "ts": 46468, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC40986000506001D000700000000510E01", "len": 19}
+{"seq": 119, "ts": 46918, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900E209440000001D0051", "len": 12}
+{"seq": 120, "ts": 46918, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BE20988000806001D000700000000510E01", "len": 19}
+{"seq": 121, "ts": 47129, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv Wohnzimmer"}
+{"seq": 122, "ts": 47347, "dir": "info", "link": -1, "phase": "idle", "msg": "scan stop"}
+{"seq": 123, "ts": 47393, "dir": "info", "link": -1, "phase": "idle", "msg": "scan start"}
+{"seq": 124, "ts": 47404, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 6c:70:cb:f0:08:"}
+{"seq": 125, "ts": 47418, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900E209440000001D0052", "len": 12}
+{"seq": 126, "ts": 47518, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BE20988000B06001D000700000000520F01", "len": 19}
+{"seq": 127, "ts": 47636, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 53:49:12:1e:84:"}
+{"seq": 128, "ts": 47650, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv Polar H9 1DF6CA"}
+{"seq": 129, "ts": 47739, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 13:33:c3:04:f8:"}
+{"seq": 130, "ts": 47782, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 1f:ca:45:c3:63:"}
+{"seq": 131, "ts": 47789, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv c8:a6:ef:99:a0:"}
+{"seq": 132, "ts": 47968, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900E209440000001D0052", "len": 12}
+{"seq": 133, "ts": 47968, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BE20988000E06001D000700000000520F01", "len": 19}
+{"seq": 134, "ts": 48145, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 66:78:72:a8:00:"}
+{"seq": 135, "ts": 48418, "dir": "info", "link": 0, "phase": "idle", "uuid": "2AD9", "msg": "sub notify"}
+{"seq": 136, "ts": 48518, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900E209440000001D0052", "len": 12}
+{"seq": 137, "ts": 48518, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BE20988001106001D000700000000521001", "len": 19}
+{"seq": 138, "ts": 49018, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900E209440000001D0052", "len": 12}
+{"seq": 139, "ts": 49018, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BE20988001406001D000700000000521001", "len": 19}
+{"seq": 140, "ts": 49368, "dir": "info", "link": 0, "phase": "idle", "uuid": "2ACE", "msg": "sub notify"}
+{"seq": 141, "ts": 49568, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900E209440000001D0053", "len": 12}
+{"seq": 142, "ts": 49568, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BE20988001706001D000700000000531101", "len": 19}
+{"seq": 143, "ts": 49762, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 7c:37:38:7c:4b:"}
+{"seq": 144, "ts": 50068, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900E209440000001D0053", "len": 12}
+{"seq": 145, "ts": 50068, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BE20988001A06001D000700000000531101", "len": 19}
+{"seq": 146, "ts": 50568, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0053", "len": 12}
+{"seq": 147, "ts": 50618, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C0984001D06001C000700000000531201", "len": 19}
+{"seq": 148, "ts": 50918, "dir": "read", "link": 0, "phase": "idle", "uuid": "2C01", "hex": "03806170702D312E332E342D32303231313231362E30303031", "len": 25}
+{"seq": 149, "ts": 51118, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0053", "len": 12}
+{"seq": 150, "ts": 51118, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C0984002006001C000700000000531201", "len": 19}
+{"seq": 151, "ts": 51544, "dir": "info", "link": -1, "phase": "idle", "msg": "scan stop"}
+{"seq": 152, "ts": 51586, "dir": "info", "link": -1, "phase": "idle", "msg": "scan start"}
+{"seq": 153, "ts": 51618, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0052", "len": 12}
+{"seq": 154, "ts": 51718, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C0984002306001C000700000000521301", "len": 19}
+{"seq": 155, "ts": 51810, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 1f:ca:45:c3:63:"}
+{"seq": 156, "ts": 51840, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 13:33:c3:04:f8:"}
+{"seq": 157, "ts": 52143, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 55' Crystal UHD"}
+{"seq": 158, "ts": 52218, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0052", "len": 12}
+{"seq": 159, "ts": 52218, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC40986002606001D000700000000521301", "len": 19}
+{"seq": 160, "ts": 52247, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 7c:37:38:7c:4b:"}
+{"seq": 161, "ts": 52272, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 66:78:72:a8:00:"}
+{"seq": 162, "ts": 52275, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv Wohnzimmer"}
+{"seq": 163, "ts": 52639, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 53:49:12:1e:84:"}
+{"seq": 164, "ts": 52668, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0052", "len": 12}
+{"seq": 165, "ts": 52668, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC40986002906001D000700000000521401", "len": 19}
+{"seq": 166, "ts": 52805, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 6c:70:cb:f0:08:"}
+{"seq": 167, "ts": 53218, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0052", "len": 12}
+{"seq": 168, "ts": 53218, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC40986002C06001D000700000000521401", "len": 19}
+{"seq": 169, "ts": 53718, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0052", "len": 12}
+{"seq": 170, "ts": 53718, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC40986002F06001D000700000000521501", "len": 19}
+{"seq": 171, "ts": 53924, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv Polar H9 1DF6CA"}
+{"seq": 172, "ts": 54268, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0052", "len": 12}
+{"seq": 173, "ts": 54268, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC40986003206001D000700000000521501", "len": 19}
+{"seq": 174, "ts": 54768, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0052", "len": 12}
+{"seq": 175, "ts": 54768, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC40986003506001D000700000000521601", "len": 19}
+{"seq": 176, "ts": 55318, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0052", "len": 12}
+{"seq": 177, "ts": 55318, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC40986003806001D000700000000521601", "len": 19}
+{"seq": 178, "ts": 55642, "dir": "info", "link": -1, "phase": "idle", "msg": "scan stop"}
+{"seq": 179, "ts": 55685, "dir": "info", "link": -1, "phase": "idle", "msg": "scan start"}
+{"seq": 180, "ts": 55702, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 55' Crystal UHD"}
+{"seq": 181, "ts": 55721, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 6c:70:cb:f0:08:"}
+{"seq": 182, "ts": 55818, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809002E093F0000001B0052", "len": 12}
+{"seq": 183, "ts": 55818, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2E097E003B06001B000700000000521701", "len": 19}
+{"seq": 184, "ts": 55914, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 13:33:c3:04:f8:"}
+{"seq": 185, "ts": 56188, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 53:49:12:1e:84:"}
+{"seq": 186, "ts": 56368, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809002E093F0000001B0053", "len": 12}
+{"seq": 187, "ts": 56368, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2E097E003E06001B000700000000531701", "len": 19}
+{"seq": 188, "ts": 56379, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 7c:37:38:7c:4b:"}
+{"seq": 189, "ts": 56398, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 1f:ca:45:c3:63:"}
+{"seq": 190, "ts": 56400, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 66:78:72:a8:00:"}
+{"seq": 191, "ts": 56743, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv cd:9b:95:66:ca:"}
+{"seq": 192, "ts": 56918, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809002E093F0000001B0053", "len": 12}
+{"seq": 193, "ts": 56918, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2E097E004106001B000700000000531801", "len": 19}
+{"seq": 194, "ts": 57415, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv Wohnzimmer"}
+{"seq": 195, "ts": 57418, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809002E093F0000001B0053", "len": 12}
+{"seq": 196, "ts": 57418, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2E097E004406001B000700000000531801", "len": 19}
+{"seq": 197, "ts": 57891, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv f7:cb:3c:64:b4:"}
+{"seq": 198, "ts": 57918, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809002E093F0000001B0053", "len": 12}
+{"seq": 199, "ts": 57918, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2E097E004706001B000700000000531901", "len": 19}
+{"seq": 200, "ts": 58468, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809002E093F0000001B0052", "len": 12}
+{"seq": 201, "ts": 58468, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2E097E004A06001B000700000000521901", "len": 19}
+{"seq": 202, "ts": 58968, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809002E093F0000001B0052", "len": 12}
+{"seq": 203, "ts": 58968, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2E097E004D06001B000700000000521A01", "len": 19}
+{"seq": 204, "ts": 59468, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809002E093F0000001B0052", "len": 12}
+{"seq": 205, "ts": 59518, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2E097E005006001B000700000000521A01", "len": 19}
+{"seq": 206, "ts": 59841, "dir": "info", "link": -1, "phase": "idle", "msg": "scan stop"}
+{"seq": 207, "ts": 59884, "dir": "info", "link": -1, "phase": "idle", "msg": "scan start"}
+{"seq": 208, "ts": 59893, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv d3:6e:96:55:3f:"}
+{"seq": 209, "ts": 59894, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 53:49:12:1e:84:"}
+{"seq": 210, "ts": 60018, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809002E093F0000001B0052", "len": 12}
+{"seq": 211, "ts": 60018, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2E097E005306001B000700000000521B01", "len": 19}
+{"seq": 212, "ts": 60231, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 66:78:72:a8:00:"}
+{"seq": 213, "ts": 60415, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 1f:ca:45:c3:63:"}
+{"seq": 214, "ts": 60427, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 13:33:c3:04:f8:"}
+{"seq": 215, "ts": 60518, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809002E093F0000001B0053", "len": 12}
+{"seq": 216, "ts": 60568, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2E097E005606001B000700000000531B01", "len": 19}
+{"seq": 217, "ts": 60749, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv cd:9b:95:66:ca:"}
+{"seq": 218, "ts": 61081, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv c8:a6:ef:99:a0:"}
+{"seq": 219, "ts": 61118, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809002E093F0000001B0053", "len": 12}
+{"seq": 220, "ts": 61118, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2E097E005906001B000700000000531C01", "len": 19}
+{"seq": 221, "ts": 61123, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 6c:70:cb:f0:08:"}
+{"seq": 222, "ts": 61568, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809005609400000001B0053", "len": 12}
+{"seq": 223, "ts": 61592, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 7c:37:38:7c:4b:"}
+{"seq": 224, "ts": 61618, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B560980005C06001B000700000000531C01", "len": 19}
+{"seq": 225, "ts": 61868, "dir": "info", "link": 0, "phase": "idle", "uuid": "2C01", "msg": "sub notify"}
+{"seq": 226, "ts": 61868, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2C01", "hex": "0080", "len": 2}
+{"seq": 227, "ts": 62118, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809005609400000001B0053", "len": 12}
+{"seq": 228, "ts": 62118, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B560980005F06001B000800000000531D01", "len": 19}
+{"seq": 229, "ts": 62552, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv Wohnzimmer"}
+{"seq": 230, "ts": 62618, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809005609400000001B0054", "len": 12}
+{"seq": 231, "ts": 62668, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B560980006206001B000800000000541D01", "len": 19}
+{"seq": 232, "ts": 63168, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A50", "hex": "08888888888888", "len": 7}
+{"seq": 233, "ts": 63168, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809007409410000001C0054", "len": 12}
+{"seq": 234, "ts": 63169, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B740982006506001C000800000000541E01", "len": 19}
+{"seq": 235, "ts": 63668, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809007409410000001C0054", "len": 12}
+{"seq": 236, "ts": 63718, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B740982006806001C000800000000541E01", "len": 19}
+{"seq": 237, "ts": 64039, "dir": "info", "link": -1, "phase": "idle", "msg": "scan stop"}
+{"seq": 238, "ts": 64218, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A2A", "hex": "FFEEDDCCBBAA", "len": 6}
+{"seq": 239, "ts": 64318, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809007409410000001C0054", "len": 12}
+{"seq": 240, "ts": 64318, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B740982006B06001C000800000000541F01", "len": 19}
+{"seq": 241, "ts": 64718, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809007409410000001C0055", "len": 12}
+{"seq": 242, "ts": 64768, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B740982006E06001C000800000000551F01", "len": 19}
+{"seq": 243, "ts": 65218, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A23", "hex": "123456FFFE9ABCDE", "len": 8}
+{"seq": 244, "ts": 65318, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0055", "len": 12}
+{"seq": 245, "ts": 65318, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C0984007106001C000800000000552001", "len": 19}
+{"seq": 246, "ts": 65818, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0055", "len": 12}
+{"seq": 247, "ts": 65818, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C0984007406001C000800000000552001", "len": 19}
+{"seq": 248, "ts": 66268, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A28", "hex": "362E332E30", "len": 5}
+{"seq": 249, "ts": 66368, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0055", "len": 12}
+{"seq": 250, "ts": 66368, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C0984007706001C000800000000552101", "len": 19}
+{"seq": 251, "ts": 66818, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0054", "len": 12}
+{"seq": 252, "ts": 66868, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C0984007A06001C000800000000542101", "len": 19}
+{"seq": 253, "ts": 67368, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0054", "len": 12}
+{"seq": 254, "ts": 67368, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C0984007D06001C000800000000542201", "len": 19}
+{"seq": 255, "ts": 67468, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A26", "hex": "362E312E32", "len": 5}
+{"seq": 256, "ts": 67868, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0054", "len": 12}
+{"seq": 257, "ts": 67968, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C0984008006001C000800000000542201", "len": 19}
+{"seq": 258, "ts": 68418, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0054", "len": 12}
+{"seq": 259, "ts": 68418, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C0984008306001C000800000000542301", "len": 19}
+{"seq": 260, "ts": 68419, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A27", "hex": "312E302E30", "len": 5}
+{"seq": 261, "ts": 68918, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0053", "len": 12}
+{"seq": 262, "ts": 68918, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C0984008606001C000800000000532301", "len": 19}
+{"seq": 263, "ts": 69518, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0053", "len": 12}
+{"seq": 264, "ts": 69518, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C0984008906001C000800000000532401", "len": 19}
+{"seq": 265, "ts": 69618, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A25", "hex": "312E302E302E302D4C45", "len": 10}
+{"seq": 266, "ts": 70018, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0053", "len": 12}
+{"seq": 267, "ts": 70018, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C0984008C06001C000800000000532401", "len": 19}
+{"seq": 268, "ts": 70184, "dir": "info", "link": 0, "phase": "idle", "msg": "gatt 5 svc ftms=1"}
+{"seq": 269, "ts": 70568, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809007409410000001C0053", "len": 12}
+{"seq": 270, "ts": 70568, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B740982008F06001C000800000000532501", "len": 19}
+{"seq": 271, "ts": 70668, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A24", "hex": "424C452D312E30", "len": 7}
+{"seq": 272, "ts": 71018, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809007409410000001C0052", "len": 12}
+{"seq": 273, "ts": 71018, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B740982009206001C000800000000522501", "len": 19}
+{"seq": 274, "ts": 71312, "dir": "info", "link": 0, "phase": "idle", "msg": "gatt 5 svc ftms=1"}
+{"seq": 275, "ts": 71568, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809007409410000001C0052", "len": 12}
+{"seq": 276, "ts": 71568, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B740982009506001C000800000000522601", "len": 19}
+{"seq": 277, "ts": 71668, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A29", "hex": "415352", "len": 3}
+{"seq": 278, "ts": 72068, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809007409410000001C0052", "len": 12}
+{"seq": 279, "ts": 72068, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B740982009806001C000800000000522601", "len": 19}
+{"seq": 280, "ts": 72618, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0052", "len": 12}
+{"seq": 281, "ts": 72618, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C0984009B06001C000800000000522701", "len": 19}
+{"seq": 282, "ts": 73118, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0052", "len": 12}
+{"seq": 283, "ts": 73118, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C0984009E06001C000800000000522701", "len": 19}
+{"seq": 284, "ts": 73718, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0053", "len": 12}
+{"seq": 285, "ts": 73718, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C098400A106001C000800000000532801", "len": 19}
+{"seq": 286, "ts": 73918, "dir": "read", "link": 0, "phase": "idle", "uuid": "2B2A", "hex": "61601F5E99205411483C8D6342A4FFFA", "len": 16}
+{"seq": 287, "ts": 74218, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0053", "len": 12}
+{"seq": 288, "ts": 74218, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C098400A406001C000800000000532801", "len": 19}
+{"seq": 289, "ts": 74668, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0053", "len": 12}
+{"seq": 290, "ts": 74718, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C098400A706001C000800000000532901", "len": 19}
+{"seq": 291, "ts": 74968, "dir": "read", "link": 0, "phase": "idle", "uuid": "2B29", "hex": "00", "len": 1}
+{"seq": 292, "ts": 75218, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0053", "len": 12}
+{"seq": 293, "ts": 75218, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C098400AA06001C000800000000532901", "len": 19}
+{"seq": 294, "ts": 75718, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0054", "len": 12}
+{"seq": 295, "ts": 75768, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC4098600AD06001D000800000000542A01", "len": 19}
+{"seq": 296, "ts": 76268, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0054", "len": 12}
+{"seq": 297, "ts": 76268, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC4098600B006001D000800000000542A01", "len": 19}
+{"seq": 298, "ts": 76768, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0054", "len": 12}
+{"seq": 299, "ts": 76818, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC4098600B306001D000800000000542B01", "len": 19}
+{"seq": 300, "ts": 77018, "dir": "read", "link": 0, "phase": "idle", "uuid": "2AC9"}
+{"seq": 301, "ts": 77318, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0054", "len": 12}
+{"seq": 302, "ts": 77318, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC4098600B606001D000800000000542B01", "len": 19}
+{"seq": 303, "ts": 77818, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0055", "len": 12}
+{"seq": 304, "ts": 77918, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C098400B906001C000800000000552C01", "len": 19}
+{"seq": 305, "ts": 78018, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A01", "hex": "0000", "len": 2}
+{"seq": 306, "ts": 78368, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0055", "len": 12}
+{"seq": 307, "ts": 78368, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C098400BC06001C000800000000552C01", "len": 19}
+{"seq": 308, "ts": 78868, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0055", "len": 12}
+{"seq": 309, "ts": 78968, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C098400BF06001C000800000000552D01", "len": 19}
+{"seq": 310, "ts": 79068, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A00", "hex": "5443313734", "len": 5}
+{"seq": 311, "ts": 79468, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0055", "len": 12}
+{"seq": 312, "ts": 79468, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC4098600C206001D000800000000552D01", "len": 19}
+{"seq": 313, "ts": 79918, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0054", "len": 12}
+{"seq": 314, "ts": 79968, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC4098600C506001D000800000000542E01", "len": 19}
+{"seq": 315, "ts": 80317, "dir": "write", "link": 0, "phase": "idle", "uuid": "2AD9", "hex": "00", "len": 1}
+{"seq": 316, "ts": 80317, "dir": "info", "link": -1, "phase": "idle", "msg": "deadman armed"}
+{"seq": 317, "ts": 80318, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD9", "hex": "800001", "len": 3}
+{"seq": 318, "ts": 80322, "dir": "resp", "link": 0, "phase": "idle", "uuid": "2AD9", "hex": "800001", "len": 3}
+{"seq": 319, "ts": 80468, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0054", "len": 12}
+{"seq": 320, "ts": 80468, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC4098600C806001D000800000000542E01", "len": 19}
+{"seq": 321, "ts": 80968, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0054", "len": 12}
+{"seq": 322, "ts": 81018, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC4098600CB06001D000800000000542F01", "len": 19}
+{"seq": 323, "ts": 81518, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809007409410000001C0054", "len": 12}
+{"seq": 324, "ts": 81518, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B74098200CE06001C000800000000542F01", "len": 19}
+{"seq": 325, "ts": 82018, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809007409410000001C0055", "len": 12}
+{"seq": 326, "ts": 82068, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B74098200D106001C000800000000553001", "len": 19}
+{"seq": 327, "ts": 82568, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809007409410000001C0055", "len": 12}
+{"seq": 328, "ts": 82568, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B74098200D406001C000800000000553001", "len": 19}
+{"seq": 329, "ts": 83068, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809007409410000001C0055", "len": 12}
+{"seq": 330, "ts": 83118, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B74098200D706001C000800000000553101", "len": 19}
+{"seq": 331, "ts": 83618, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809007409410000001C0055", "len": 12}
+{"seq": 332, "ts": 83618, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B74098200DA06001C000800000000553101", "len": 19}
+{"seq": 333, "ts": 84118, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809007409410000001C0056", "len": 12}
+{"seq": 334, "ts": 84118, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B74098200DD06001C000800000000563201", "len": 19}
+{"seq": 335, "ts": 84668, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809007409410000001C0056", "len": 12}
+{"seq": 336, "ts": 84668, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B74098200E006001C000800000000563201", "len": 19}
+{"seq": 337, "ts": 85168, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0056", "len": 12}
+{"seq": 338, "ts": 85168, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C098400E306001C000800000000563301", "len": 19}
+{"seq": 339, "ts": 85718, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0056", "len": 12}
+{"seq": 340, "ts": 85718, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C098400E606001C000800000000563301", "len": 19}
+{"seq": 341, "ts": 86218, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809009C09420000001C0056", "len": 12}
+{"seq": 342, "ts": 86218, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9C098400E906001C000800000000563401", "len": 19}
+{"seq": 343, "ts": 86818, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0056", "len": 12}
+{"seq": 344, "ts": 86818, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC4098600EC06001D000800000000563401", "len": 19}
+{"seq": 345, "ts": 87268, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0056", "len": 12}
+{"seq": 346, "ts": 87268, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC4098600EF06001D000800000000563501", "len": 19}
+{"seq": 347, "ts": 87868, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0056", "len": 12}
+{"seq": 348, "ts": 87868, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC4098600F206001D000800000000563501", "len": 19}
+{"seq": 349, "ts": 88318, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0055", "len": 12}
+{"seq": 350, "ts": 88318, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC4098600F506001D000800000000553601", "len": 19}
+{"seq": 351, "ts": 88868, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0055", "len": 12}
+{"seq": 352, "ts": 88868, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC4098600F806001D000800000000553601", "len": 19}
+{"seq": 353, "ts": 89368, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0055", "len": 12}
+{"seq": 354, "ts": 89368, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC4098600FB06001D000800000000553701", "len": 19}
+{"seq": 355, "ts": 89918, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0055", "len": 12}
+{"seq": 356, "ts": 89918, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC4098600FE06001D000800000000553701", "len": 19}
+{"seq": 357, "ts": 90418, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0054", "len": 12}
+{"seq": 358, "ts": 90418, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC40986000107001D000800000000543801", "len": 19}
+{"seq": 359, "ts": 90968, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0054", "len": 12}
+{"seq": 360, "ts": 90968, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC40986000407001D000800000000543801", "len": 19}
+{"seq": 361, "ts": 91468, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0054", "len": 12}
+{"seq": 362, "ts": 91468, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC40986000707001D000800000000543901", "len": 19}
+{"seq": 363, "ts": 91968, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "080900C409430000001D0054", "len": 12}
+{"seq": 364, "ts": 92018, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC40986000A07001D000800000000543901", "len": 19}
+{"seq": 365, "ts": 92518, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809007409410000001C0055", "len": 12}
+{"seq": 366, "ts": 92518, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B740982000D07001C000800000000553A01", "len": 19}
+{"seq": 367, "ts": 93018, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809007409410000001C0055", "len": 12}
+{"seq": 368, "ts": 93068, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B740982001007001C000800000000553A01", "len": 19}
+{"seq": 369, "ts": 93568, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809007409410000001C0055", "len": 12}
+{"seq": 370, "ts": 93569, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B740982001307001C000800000000553B01", "len": 19}
+{"seq": 371, "ts": 94068, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809002E093F0000001B0055", "len": 12}
+{"seq": 372, "ts": 94118, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2E097E001607001B000800000000553B01", "len": 19}
+{"seq": 373, "ts": 94618, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809002E093F0000001B0055", "len": 12}
+{"seq": 374, "ts": 94618, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2E097E001907001B000800000000553C01", "len": 19}
+{"seq": 375, "ts": 95118, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809002E093F0000001B0055", "len": 12}
+{"seq": 376, "ts": 95168, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2E097E001C07001B000800000000553C01", "len": 19}
+{"seq": 377, "ts": 95668, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809002E093F0000001B0055", "len": 12}
+{"seq": 378, "ts": 95718, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2E097E001F07001B000800000000553D01", "len": 19}
+{"seq": 379, "ts": 96168, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809002E093F0000001B0055", "len": 12}
+{"seq": 380, "ts": 96218, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2E097E002207001B000800000000553D01", "len": 19}
+{"seq": 381, "ts": 96718, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809002E093F0000001B0054", "len": 12}
+{"seq": 382, "ts": 96718, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2E097E002507001B000900000000543E01", "len": 19}
+{"seq": 383, "ts": 97218, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "0809002E093F0000001B0054", "len": 12}
+{"seq": 384, "ts": 97268, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2E097E002807001B000900000000543E01", "len": 19}
+{"seq": 385, "ts": 97768, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "08090006093E0000001A0054", "len": 12}
+{"seq": 386, "ts": 97768, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C002B07001A000900000000543F01", "len": 19}
+{"seq": 387, "ts": 98268, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "08090006093E0000001A0054", "len": 12}
+{"seq": 388, "ts": 98318, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C002E07001A000900000000543F01", "len": 19}
+{"seq": 389, "ts": 98818, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "08090006093E0000001A0053", "len": 12}
+{"seq": 390, "ts": 98818, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C003107001A000900000000534001", "len": 19}
+{"seq": 391, "ts": 99318, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "08090006093E0000001A0053", "len": 12}
+{"seq": 392, "ts": 99368, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C003407001A000900000000534001", "len": 19}
+{"seq": 393, "ts": 99918, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "08090006093E0000001A0053", "len": 12}
+{"seq": 394, "ts": 99918, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C003707001A000900000000534101", "len": 19}
+{"seq": 395, "ts": 100319, "dir": "error", "link": -1, "phase": "idle", "msg": "deadman: kein Keepalive"}
+{"seq": 396, "ts": 100368, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2ACE", "hex": "08090006093E0000001A0053", "len": 12}
+{"seq": 397, "ts": 100418, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C003A07001A000900000000534101", "len": 19}
+{"seq": 398, "ts": 100418, "dir": "write", "link": 0, "phase": "idle", "uuid": "2AD9", "hex": "0801", "len": 2, "msg": "panic stop"}
+{"seq": 399, "ts": 100418, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD9", "hex": "800801", "len": 3}
+{"seq": 400, "ts": 100538, "dir": "info", "link": -1, "phase": "idle", "msg": "deadman disarmed"}
+{"seq": 401, "ts": 100568, "dir": "info", "link": 0, "phase": "idle", "msg": "link 0 down"}
+{"seq": 402, "ts": 122818, "dir": "info", "link": 0, "phase": "idle", "msg": "link 0 up, 5 svc"}
+{"seq": 403, "ts": 122822, "dir": "info", "link": 0, "phase": "idle", "msg": "gatt 5 svc ftms=1"}
+{"seq": 404, "ts": 123027, "dir": "info", "link": 0, "phase": "idle", "msg": "gatt 5 svc ftms=1"}
+{"seq": 405, "ts": 133118, "dir": "info", "link": 0, "phase": "idle", "uuid": "2AD2", "msg": "sub notify"}
+{"seq": 406, "ts": 133318, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2A087000540700170009000000004D4801", "len": 19}
+{"seq": 407, "ts": 133918, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B02086E00560700170009000000004D4801", "len": 19}
+{"seq": 408, "ts": 134368, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B02086E00580700170009000000004D4901", "len": 19}
+{"seq": 409, "ts": 134918, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2A0870005A0700170009000000004D4901", "len": 19}
+{"seq": 410, "ts": 135468, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2A0870005C0700170009000000004D4A01", "len": 19}
+{"seq": 411, "ts": 135918, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2A0870005E0700170009000000004E4A01", "len": 19}
+{"seq": 412, "ts": 136468, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2A087000600700170009000000004E4B01", "len": 19}
+{"seq": 413, "ts": 136968, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B48087200620700180009000000004E4B01", "len": 19}
+{"seq": 414, "ts": 137518, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B48087200640700180009000000004E4C01", "len": 19}
+{"seq": 415, "ts": 138018, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B48087200660700180009000000004F4C01", "len": 19}
+{"seq": 416, "ts": 138568, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B48087200680700180009000000004F4D01", "len": 19}
+{"seq": 417, "ts": 139068, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B700874006B0700180009000000004F4D01", "len": 19}
+{"seq": 418, "ts": 139618, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B700874006E0700180009000000004F4E01", "len": 19}
+{"seq": 419, "ts": 140168, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B98087600710700190009000000004E4E01", "len": 19}
+{"seq": 420, "ts": 140668, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B98087600740700190009000000004E4F01", "len": 19}
+{"seq": 421, "ts": 141168, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B98087600770700190009000000004E4F01", "len": 19}
+{"seq": 422, "ts": 141718, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC00878007A0700190009000000004E5001", "len": 19}
+{"seq": 423, "ts": 142218, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC00878007D0700190009000000004E5001", "len": 19}
+{"seq": 424, "ts": 142768, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC0087800800700190009000000004D5101", "len": 19}
+{"seq": 425, "ts": 143268, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC0087800830700190009000000004D5101", "len": 19}
+{"seq": 426, "ts": 143818, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A008607001A0009000000004D5201", "len": 19}
+{"seq": 427, "ts": 144318, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A008907001A0009000000004D5201", "len": 19}
+{"seq": 428, "ts": 144868, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A008C07001A0009000000004D5301", "len": 19}
+{"seq": 429, "ts": 145368, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A008F07001A0009000000004D5301", "len": 19}
+{"seq": 430, "ts": 145918, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A009207001A0009000000004D5401", "len": 19}
+{"seq": 431, "ts": 146418, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A009507001A0009000000004D5401", "len": 19}
+{"seq": 432, "ts": 146968, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A009807001A0009000000004D5501", "len": 19}
+{"seq": 433, "ts": 147468, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A009B07001A0009000000004C5501", "len": 19}
+{"seq": 434, "ts": 148018, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A009E07001A0009000000004C5601", "len": 19}
+{"seq": 435, "ts": 148518, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A00A107001A0009000000004C5601", "len": 19}
+{"seq": 436, "ts": 149068, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A00A407001A0009000000004C5701", "len": 19}
+{"seq": 437, "ts": 149568, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2E097E00A707001B0009000000004C5701", "len": 19}
+{"seq": 438, "ts": 150118, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2E097E00AA07001B0009000000004B5801", "len": 19}
+{"seq": 439, "ts": 150618, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2E097E00AD07001B0009000000004B5801", "len": 19}
+{"seq": 440, "ts": 151168, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B2E097E00B007001B0009000000004B5901", "len": 19}
+{"seq": 441, "ts": 151668, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B74098200B307001C0009000000004B5901", "len": 19}
+{"seq": 442, "ts": 152218, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B74098200B607001C0009000000004B5A01", "len": 19}
+{"seq": 443, "ts": 152718, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B74098200B907001C0009000000004B5A01", "len": 19}
+{"seq": 444, "ts": 153268, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C00BC07001A0009000000004B5B01", "len": 19}
+{"seq": 445, "ts": 153768, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C00BF07001A0009000000004B5B01", "len": 19}
+{"seq": 446, "ts": 154268, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C00C207001A0009000000004B5C01", "len": 19}
+{"seq": 447, "ts": 154818, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C00C507001A0009000000004A5C01", "len": 19}
+{"seq": 448, "ts": 155318, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC0087800C80700190009000000004A5D01", "len": 19}
+{"seq": 449, "ts": 155868, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC0087800CB0700190009000000004A5D01", "len": 19}
+{"seq": 450, "ts": 156368, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC0087800CE0700190009000000004A5E01", "len": 19}
+{"seq": 451, "ts": 156918, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC0087800D10700190009000000004A5E01", "len": 19}
+{"seq": 452, "ts": 157468, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A00D407001A000900000000495F01", "len": 19}
+{"seq": 453, "ts": 157968, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A00D707001A000900000000495F01", "len": 19}
+{"seq": 454, "ts": 158460, "dir": "info", "link": -1, "phase": "idle", "msg": "scan start"}
+{"seq": 455, "ts": 158508, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 6c:70:cb:f0:08:"}
+{"seq": 456, "ts": 158511, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 7c:37:38:7c:4b:"}
+{"seq": 457, "ts": 158518, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A00DA07001A000900000000496001", "len": 19}
+{"seq": 458, "ts": 158635, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv c8:a6:ef:99:a0:"}
+{"seq": 459, "ts": 158688, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 1f:ca:45:c3:63:"}
+{"seq": 460, "ts": 158862, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 10:89:ac:60:75:"}
+{"seq": 461, "ts": 159018, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A00DD07001A000900000000496001", "len": 19}
+{"seq": 462, "ts": 159207, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 53:49:12:1e:84:"}
+{"seq": 463, "ts": 159518, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A00E007001A0009000000004A6101", "len": 19}
+{"seq": 464, "ts": 159992, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv 66:78:72:a8:00:"}
+{"seq": 465, "ts": 160068, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A00E307001A0009000000004A6101", "len": 19}
+{"seq": 466, "ts": 160568, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A00E607001A0009000000004A6201", "len": 19}
+{"seq": 467, "ts": 161118, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C00E907001A0009000000004A6201", "len": 19}
+{"seq": 468, "ts": 161668, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C00EC07001A000A000000004B6301", "len": 19}
+{"seq": 469, "ts": 162168, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C00EF07001A000A000000004B6301", "len": 19}
+{"seq": 470, "ts": 162718, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C00F207001A000A000000004B6401", "len": 19}
+{"seq": 471, "ts": 163218, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C00F507001A000A000000004B6401", "len": 19}
+{"seq": 472, "ts": 163718, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C00F807001A000A000000004B6501", "len": 19}
+{"seq": 473, "ts": 164011, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv Wohnzimmer"}
+{"seq": 474, "ts": 164268, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C00FB07001A000A000000004C6501", "len": 19}
+{"seq": 475, "ts": 164768, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C00FE07001A000A000000004C6601", "len": 19}
+{"seq": 476, "ts": 165318, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C000108001A000A000000004C6601", "len": 19}
+{"seq": 477, "ts": 165868, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C000408001A000A000000004C6701", "len": 19}
+{"seq": 478, "ts": 166133, "dir": "adv", "link": -1, "phase": "idle", "msg": "adv d3:6e:96:55:3f:"}
+{"seq": 479, "ts": 166368, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C000708001A000A000000004D6701", "len": 19}
+{"seq": 480, "ts": 166564, "dir": "info", "link": -1, "phase": "idle", "msg": "scan stop"}
+{"seq": 481, "ts": 166662, "dir": "info", "link": 0, "phase": "idle", "msg": "gatt 5 svc ftms=1"}
+{"seq": 482, "ts": 166918, "dir": "read", "link": 0, "phase": "idle", "uuid": "2ACC", "hex": "A646000004200000", "len": 8}
+{"seq": 483, "ts": 166919, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C000A08001A000A000000004D6801", "len": 19}
+{"seq": 484, "ts": 167118, "dir": "read", "link": 0, "phase": "idle", "uuid": "2AD6", "hex": "0A00A0000A00", "len": 6}
+{"seq": 485, "ts": 167318, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A00", "hex": "5443313734", "len": 5}
+{"seq": 486, "ts": 167418, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C000D08001A000A000000004D6801", "len": 19}
+{"seq": 487, "ts": 167518, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A29", "hex": "415352", "len": 3}
+{"seq": 488, "ts": 167718, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A24", "hex": "424C452D312E30", "len": 7}
+{"seq": 489, "ts": 167918, "dir": "read", "link": 0, "phase": "idle", "uuid": "2A26", "hex": "362E312E32", "len": 5}
+{"seq": 490, "ts": 167919, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C001008001A000A000000004D6901", "len": 19}
+{"seq": 491, "ts": 168118, "dir": "info", "link": 0, "phase": "idle", "uuid": "2AD2", "msg": "sub notify"}
+{"seq": 492, "ts": 168177, "dir": "phase", "link": -1, "phase": "idle", "msg": "idle"}
+{"seq": 493, "ts": 168468, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C001308001A000A000000004E6901", "len": 19}
+{"seq": 494, "ts": 168968, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C001608001A000A000000004E6A01", "len": 19}
+{"seq": 495, "ts": 169518, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C001908001A000A000000004E6A01", "len": 19}
+{"seq": 496, "ts": 170018, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C001C08001A000A000000004E6B01", "len": 19}
+{"seq": 497, "ts": 170568, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B06097C001F08001A000A000000004E6B01", "len": 19}
+{"seq": 498, "ts": 171068, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A002208001A000A000000004F6C01", "len": 19}
+{"seq": 499, "ts": 171568, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A002508001A000A000000004F6C01", "len": 19}
+{"seq": 500, "ts": 172118, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A002808001A000A000000004F6D01", "len": 19}
+{"seq": 501, "ts": 172618, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A002B08001A000A000000004F6D01", "len": 19}
+{"seq": 502, "ts": 173168, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A002E08001A000A000000004E6E01", "len": 19}
+{"seq": 503, "ts": 173668, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A003108001A000A000000004E6E01", "len": 19}
+{"seq": 504, "ts": 174268, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BDE087A003408001A000A000000004E6F01", "len": 19}
+{"seq": 505, "ts": 174718, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC008780037080019000A000000004E6F01", "len": 19}
+{"seq": 506, "ts": 175268, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC00878003A080019000A000000004E7001", "len": 19}
+{"seq": 507, "ts": 175768, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B980876003D080019000A000000004E7001", "len": 19}
+{"seq": 508, "ts": 176318, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B9808760040080019000A000000004E7101", "len": 19}
+{"seq": 509, "ts": 176818, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B7008740043080018000A000000004E7101", "len": 19}
+{"seq": 510, "ts": 177368, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B7008740046080018000A000000004E7201", "len": 19}
+{"seq": 511, "ts": 177868, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B7008740049080018000A000000004F7201", "len": 19}
+{"seq": 512, "ts": 178468, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540B700874004C080018000A000000004F7301", "len": 19}
+{"seq": 513, "ts": 178918, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC00878004F080019000A000000004F7301", "len": 19}
+{"seq": 514, "ts": 179468, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC008780052080019000A000000004F7401", "len": 19}
+{"seq": 515, "ts": 179968, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD2", "hex": "540BC008780055080019000A000000004F7401", "len": 19}
+{"seq": 516, "ts": 180299, "dir": "phase", "link": -1, "phase": "pedaling", "msg": "pedaling"}
+{"seq": 517, "ts": 180518, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BC008780058080019000A000000004F7501", "len": 19}
+{"seq": 518, "ts": 181018, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A005B08001A000A000000004F7501", "len": 19}
+{"seq": 519, "ts": 181568, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A005E08001A000A000000004F7601", "len": 19}
+{"seq": 520, "ts": 182068, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A006108001A000A000000004F7601", "len": 19}
+{"seq": 521, "ts": 182618, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540B06097C006408001A000A000000004F7701", "len": 19}
+{"seq": 522, "ts": 183168, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540B06097C006708001A000A000000004F7701", "len": 19}
+{"seq": 523, "ts": 183668, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540B06097C006A08001A000A000000004F7801", "len": 19}
+{"seq": 524, "ts": 184168, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540B06097C006D08001A000A000000004F7801", "len": 19}
+{"seq": 525, "ts": 184718, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A007008001A000A00000000507901", "len": 19}
+{"seq": 526, "ts": 185218, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A007308001A000A00000000507901", "len": 19}
+{"seq": 527, "ts": 185768, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A007608001A000A00000000507A01", "len": 19}
+{"seq": 528, "ts": 186268, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A007908001A000A00000000507A01", "len": 19}
+{"seq": 529, "ts": 186818, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A007C08001A000A00000000517B01", "len": 19}
+{"seq": 530, "ts": 187368, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A007F08001A000A00000000517B01", "len": 19}
+{"seq": 531, "ts": 187818, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A008208001A000A00000000517C01", "len": 19}
+{"seq": 532, "ts": 188418, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540B06097C008508001A000A00000000517C01", "len": 19}
+{"seq": 533, "ts": 188868, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540B06097C008808001A000A00000000517D01", "len": 19}
+{"seq": 534, "ts": 189418, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540B06097C008B08001A000A00000000517D01", "len": 19}
+{"seq": 535, "ts": 189918, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540B06097C008E08001A000A00000000517E01", "len": 19}
+{"seq": 536, "ts": 190468, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A009108001A000A00000000517E01", "len": 19}
+{"seq": 537, "ts": 190968, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A009408001A000A00000000517F01", "len": 19}
+{"seq": 538, "ts": 191568, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BC008780097080019000A00000000517F01", "len": 19}
+{"seq": 539, "ts": 192018, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BC00878009A080019000A00000000518001", "len": 19}
+{"seq": 540, "ts": 192568, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BC00878009D080019000A00000000518001", "len": 19}
+{"seq": 541, "ts": 193068, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BC0087800A0080019000A00000000518101", "len": 19}
+{"seq": 542, "ts": 193618, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BC0087800A3080019000A00000000528101", "len": 19}
+{"seq": 543, "ts": 194118, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BC0087800A6080019000A00000000528201", "len": 19}
+{"seq": 544, "ts": 194668, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BC0087800A9080019000A00000000528201", "len": 19}
+{"seq": 545, "ts": 195168, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BC0087800AC080019000A00000000528301", "len": 19}
+{"seq": 546, "ts": 195718, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A00AF08001A000A00000000518301", "len": 19}
+{"seq": 547, "ts": 196218, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A00B208001A000A00000000518401", "len": 19}
+{"seq": 548, "ts": 196818, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A00B508001A000A00000000518401", "len": 19}
+{"seq": 549, "ts": 197268, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A00B808001A000A00000000518501", "len": 19}
+{"seq": 550, "ts": 197818, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BA2033200B908000A000A00000000518501", "len": 19}
+{"seq": 551, "ts": 198318, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BA2033200BA08000A000A00000000518601", "len": 19}
+{"seq": 552, "ts": 198868, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540B2A087000BC080017000A00000000518601", "len": 19}
+{"seq": 553, "ts": 199368, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540B2A087000BE080017000A00000000518701", "len": 19}
+{"seq": 554, "ts": 199968, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540B70087400C1080018000A00000000518701", "len": 19}
+{"seq": 555, "ts": 200418, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540B70087400C4080018000B00000000518801", "len": 19}
+{"seq": 556, "ts": 201018, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540B70087400C7080018000B00000000518801", "len": 19}
+{"seq": 557, "ts": 201468, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540B70087400CA080018000B00000000518901", "len": 19}
+{"seq": 558, "ts": 202018, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540B48087200CC080018000B00000000518901", "len": 19}
+{"seq": 559, "ts": 202518, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540B48087200CE080018000B00000000528A01", "len": 19}
+{"seq": 560, "ts": 203068, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540B48087200D0080018000B00000000528A01", "len": 19}
+{"seq": 561, "ts": 203568, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540B48087200D2080018000B00000000528B01", "len": 19}
+{"seq": 562, "ts": 204068, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540B48087200D4080018000B00000000528B01", "len": 19}
+{"seq": 563, "ts": 204618, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540B48087200D6080018000B00000000538C01", "len": 19}
+{"seq": 564, "ts": 205118, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BC0087800D9080019000B00000000538C01", "len": 19}
+{"seq": 565, "ts": 205668, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BC0087800DC080019000B00000000538D01", "len": 19}
+{"seq": 566, "ts": 206168, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BC0087800DF080019000B00000000538D01", "len": 19}
+{"seq": 567, "ts": 206718, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BC0087800E2080019000B00000000528E01", "len": 19}
+{"seq": 568, "ts": 207218, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BC0087800E5080019000B00000000528E01", "len": 19}
+{"seq": 569, "ts": 207768, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BC0087800E8080019000B00000000528F01", "len": 19}
+{"seq": 570, "ts": 208268, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BC0087800EB080019000B00000000528F01", "len": 19}
+{"seq": 571, "ts": 208818, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A00EE08001A000B00000000519001", "len": 19}
+{"seq": 572, "ts": 209318, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A00F108001A000B00000000519001", "len": 19}
+{"seq": 573, "ts": 209868, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A00F408001A000B00000000519101", "len": 19}
+{"seq": 574, "ts": 210368, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A00F708001A000B00000000519101", "len": 19}
+{"seq": 575, "ts": 210918, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A00FA08001A000B00000000509201", "len": 19}
+{"seq": 576, "ts": 211468, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A00FD08001A000B00000000509201", "len": 19}
+{"seq": 577, "ts": 211968, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A000009001A000B00000000509301", "len": 19}
+{"seq": 578, "ts": 212468, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A000309001A000B00000000509301", "len": 19}
+{"seq": 579, "ts": 213118, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A000609001A000B00000000509401", "len": 19}
+{"seq": 580, "ts": 213518, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A000909001A000B00000000519401", "len": 19}
+{"seq": 581, "ts": 214068, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A000C09001A000B00000000519501", "len": 19}
+{"seq": 582, "ts": 214568, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A000F09001A000B00000000519501", "len": 19}
+{"seq": 583, "ts": 215118, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A001209001A000B00000000519601", "len": 19}
+{"seq": 584, "ts": 215618, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A001509001A000B00000000519601", "len": 19}
+{"seq": 585, "ts": 216168, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A001809001A000B00000000519701", "len": 19}
+{"seq": 586, "ts": 216668, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A001B09001A000B00000000519701", "len": 19}
+{"seq": 587, "ts": 217268, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A001E09001A000B00000000519801", "len": 19}
+{"seq": 588, "ts": 217718, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A002109001A000B00000000519801", "len": 19}
+{"seq": 589, "ts": 218318, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A002409001A000B00000000519901", "len": 19}
+{"seq": 590, "ts": 218768, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A002709001A000B00000000519901", "len": 19}
+{"seq": 591, "ts": 219318, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A002A09001A000B00000000519A01", "len": 19}
+{"seq": 592, "ts": 219818, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A002D09001A000B00000000519A01", "len": 19}
+{"seq": 593, "ts": 220368, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540BDE087A003009001A000B00000000519B01", "len": 19}
+{"seq": 594, "ts": 220668, "dir": "info", "link": 0, "phase": "pedaling", "uuid": "2AD9", "msg": "sub notify"}
+{"seq": 595, "ts": 220867, "dir": "write", "link": 0, "phase": "pedaling", "uuid": "2AD9", "hex": "00", "len": 1}
+{"seq": 596, "ts": 220868, "dir": "info", "link": -1, "phase": "pedaling", "msg": "deadman armed"}
+{"seq": 597, "ts": 220868, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD9", "hex": "800001", "len": 3}
+{"seq": 598, "ts": 220869, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD2", "hex": "540B06097C003309001A000B00000000519B01", "len": 19}
+{"seq": 599, "ts": 220872, "dir": "resp", "link": 0, "phase": "pedaling", "uuid": "2AD9", "hex": "800001", "len": 3}
+{"seq": 600, "ts": 221067, "dir": "write", "link": 0, "phase": "pedaling", "uuid": "2AD9", "hex": "07", "len": 1}
+{"seq": 601, "ts": 221068, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD9", "hex": "800701", "len": 3}
+{"seq": 602, "ts": 221072, "dir": "resp", "link": 0, "phase": "pedaling", "uuid": "2AD9", "hex": "800701", "len": 3}
+{"seq": 603, "ts": 221138, "dir": "phase", "link": -1, "phase": "pedaling", "msg": "pedaling"}
+{"seq": 604, "ts": 221151, "dir": "phase", "link": -1, "phase": "pre-write-power-100", "msg": "pre-write-power-100"}
+{"seq": 605, "ts": 221568, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B06097C003609001A000B00000000519C01", "len": 19}
+{"seq": 606, "ts": 222068, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B06097C003909001A000B00000000529C01", "len": 19}
+{"seq": 607, "ts": 222618, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B560980003C09001B000B00000000529D01", "len": 19}
+{"seq": 608, "ts": 223118, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B560980003F09001B000B00000000529D01", "len": 19}
+{"seq": 609, "ts": 223668, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B560980004209001B000B00000000529E01", "len": 19}
+{"seq": 610, "ts": 224168, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B560980004509001B000B00000000529E01", "len": 19}
+{"seq": 611, "ts": 224718, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B560980004809001B000B00000000529F01", "len": 19}
+{"seq": 612, "ts": 225218, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B560980004B09001B000B00000000529F01", "len": 19}
+{"seq": 613, "ts": 225768, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B560980004E09001B000B0000000052A001", "len": 19}
+{"seq": 614, "ts": 226318, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B560980005109001B000B0000000052A001", "len": 19}
+{"seq": 615, "ts": 226818, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B560980005409001B000B0000000052A101", "len": 19}
+{"seq": 616, "ts": 227318, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B560980005709001B000B0000000052A101", "len": 19}
+{"seq": 617, "ts": 227918, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B560980005A09001B000B0000000052A201", "len": 19}
+{"seq": 618, "ts": 228368, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B740982005D09001C000B0000000052A201", "len": 19}
+{"seq": 619, "ts": 228918, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B740982006009001C000B0000000053A301", "len": 19}
+{"seq": 620, "ts": 229468, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B740982006309001C000B0000000053A301", "len": 19}
+{"seq": 621, "ts": 230068, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B740982006609001C000B0000000053A401", "len": 19}
+{"seq": 622, "ts": 230518, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B740982006909001C000B0000000053A401", "len": 19}
+{"seq": 623, "ts": 231018, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B740982006C09001C000B0000000054A501", "len": 19}
+{"seq": 624, "ts": 231518, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B740982006F09001C000B0000000054A501", "len": 19}
+{"seq": 625, "ts": 232018, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000054A501", "len": 19}
+{"seq": 626, "ts": 232568, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000054A501", "len": 19}
+{"seq": 627, "ts": 233068, "dir": "notify", "link": 0, "phase": "pre-write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000054A501", "len": 19}
+{"seq": 628, "ts": 233340, "dir": "phase", "link": -1, "phase": "write-power-100", "msg": "write-power-100"}
+{"seq": 629, "ts": 233567, "dir": "write", "link": 0, "phase": "write-power-100", "uuid": "2AD9", "hex": "056400", "len": 3}
+{"seq": 630, "ts": 233568, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD9", "hex": "800501", "len": 3}
+{"seq": 631, "ts": 233572, "dir": "resp", "link": 0, "phase": "write-power-100", "uuid": "2AD9", "hex": "800501", "len": 3}
+{"seq": 632, "ts": 234068, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000054A501", "len": 19}
+{"seq": 633, "ts": 234618, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000054A501", "len": 19}
+{"seq": 634, "ts": 235118, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000053A501", "len": 19}
+{"seq": 635, "ts": 235718, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000053A501", "len": 19}
+{"seq": 636, "ts": 236218, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000053A501", "len": 19}
+{"seq": 637, "ts": 236668, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000053A501", "len": 19}
+{"seq": 638, "ts": 237218, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000052A501", "len": 19}
+{"seq": 639, "ts": 237768, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000052A501", "len": 19}
+{"seq": 640, "ts": 238268, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000052A501", "len": 19}
+{"seq": 641, "ts": 238768, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000052A501", "len": 19}
+{"seq": 642, "ts": 239318, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000052A501", "len": 19}
+{"seq": 643, "ts": 239818, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000051A501", "len": 19}
+{"seq": 644, "ts": 240418, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000051A501", "len": 19}
+{"seq": 645, "ts": 240868, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000051A501", "len": 19}
+{"seq": 646, "ts": 241468, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000051A501", "len": 19}
+{"seq": 647, "ts": 241968, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000051A501", "len": 19}
+{"seq": 648, "ts": 242468, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000051A501", "len": 19}
+{"seq": 649, "ts": 243018, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000051A501", "len": 19}
+{"seq": 650, "ts": 243518, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000051A501", "len": 19}
+{"seq": 651, "ts": 244018, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000051A501", "len": 19}
+{"seq": 652, "ts": 244618, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000051A501", "len": 19}
+{"seq": 653, "ts": 245068, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000051A501", "len": 19}
+{"seq": 654, "ts": 245668, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000051A501", "len": 19}
+{"seq": 655, "ts": 245728, "dir": "phase", "link": -1, "phase": "pre-write-level-10", "msg": "pre-write-level-10"}
+{"seq": 656, "ts": 246118, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000050A501", "len": 19}
+{"seq": 657, "ts": 246668, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000050A501", "len": 19}
+{"seq": 658, "ts": 247169, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000050A501", "len": 19}
+{"seq": 659, "ts": 247718, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000050A501", "len": 19}
+{"seq": 660, "ts": 248218, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000051A501", "len": 19}
+{"seq": 661, "ts": 248768, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000051A501", "len": 19}
+{"seq": 662, "ts": 249318, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000051A501", "len": 19}
+{"seq": 663, "ts": 249818, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000051A501", "len": 19}
+{"seq": 664, "ts": 250318, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000051A501", "len": 19}
+{"seq": 665, "ts": 250868, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000052A501", "len": 19}
+{"seq": 666, "ts": 251368, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000052A501", "len": 19}
+{"seq": 667, "ts": 251918, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B000000006F090000000B0000000052A501", "len": 19}
+{"seq": 668, "ts": 252418, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B82054C007009000E000B0000000052A601", "len": 19}
+{"seq": 669, "ts": 252968, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B82054C007109000E000B0000000051A601", "len": 19}
+{"seq": 670, "ts": 253518, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B02086E0073090017000B0000000051A701", "len": 19}
+{"seq": 671, "ts": 253968, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B02086E0075090017000B0000000051A701", "len": 19}
+{"seq": 672, "ts": 254518, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B7008740078090018000B0000000051A801", "len": 19}
+{"seq": 673, "ts": 255018, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B700874007B090018000B0000000050A801", "len": 19}
+{"seq": 674, "ts": 255568, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B980876007E090019000B0000000050A901", "len": 19}
+{"seq": 675, "ts": 256118, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B9808760081090019000B0000000050A901", "len": 19}
+{"seq": 676, "ts": 256618, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B4808720083090018000B0000000050AA01", "len": 19}
+{"seq": 677, "ts": 257118, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B4808720085090018000B0000000050AA01", "len": 19}
+{"seq": 678, "ts": 257718, "dir": "notify", "link": 0, "phase": "pre-write-level-10", "uuid": "2AD2", "hex": "540B7008740088090018000B000000004FAB01", "len": 19}
+{"seq": 679, "ts": 257919, "dir": "phase", "link": -1, "phase": "write-level-10", "msg": "write-level-10"}
+{"seq": 680, "ts": 258167, "dir": "write", "link": 0, "phase": "write-level-10", "uuid": "2AD9", "hex": "040A", "len": 2}
+{"seq": 681, "ts": 258168, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD9", "hex": "800401", "len": 3}
+{"seq": 682, "ts": 258169, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B700874008B090018000B000000004FAB01", "len": 19}
+{"seq": 683, "ts": 258172, "dir": "resp", "link": 0, "phase": "write-level-10", "uuid": "2AD9", "hex": "800401", "len": 3}
+{"seq": 684, "ts": 258668, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B480872008D090018000C000000004FAC01", "len": 19}
+{"seq": 685, "ts": 259218, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B480872008F090018000C000000004FAC01", "len": 19}
+{"seq": 686, "ts": 259768, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B4808720091090018000C0000000050AD01", "len": 19}
+{"seq": 687, "ts": 260318, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B4808720093090018000C0000000050AD01", "len": 19}
+{"seq": 688, "ts": 260768, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B7008740096090018000C0000000050AE01", "len": 19}
+{"seq": 689, "ts": 261318, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B7008740099090018000C0000000050AE01", "len": 19}
+{"seq": 690, "ts": 261818, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B700874009C090018000C0000000051AF01", "len": 19}
+{"seq": 691, "ts": 262368, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B700874009F090018000C0000000051AF01", "len": 19}
+{"seq": 692, "ts": 262868, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B48087200A1090018000C0000000051B001", "len": 19}
+{"seq": 693, "ts": 263418, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B48087200A3090018000C0000000051B001", "len": 19}
+{"seq": 694, "ts": 263968, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B70087400A6090018000C0000000052B101", "len": 19}
+{"seq": 695, "ts": 264518, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B70087400A9090018000C0000000052B101", "len": 19}
+{"seq": 696, "ts": 264968, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B70087400AC090018000C0000000052B201", "len": 19}
+{"seq": 697, "ts": 265518, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B70087400AF090018000C0000000052B201", "len": 19}
+{"seq": 698, "ts": 266018, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B98087600B2090019000C0000000052B301", "len": 19}
+{"seq": 699, "ts": 266668, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B98087600B5090019000C0000000052B301", "len": 19}
+{"seq": 700, "ts": 267068, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B70087400B8090018000C0000000052B401", "len": 19}
+{"seq": 701, "ts": 267568, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B70087400BB090018000C0000000052B401", "len": 19}
+{"seq": 702, "ts": 268118, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B98087600BE090019000C0000000052B501", "len": 19}
+{"seq": 703, "ts": 268618, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B98087600C1090019000C0000000051B501", "len": 19}
+{"seq": 704, "ts": 269168, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B98087600C4090019000C0000000051B601", "len": 19}
+{"seq": 705, "ts": 269718, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540B98087600C7090019000C0000000051B601", "len": 19}
+{"seq": 706, "ts": 270218, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD2", "hex": "540BDE087A00CA09001A000C0000000051B701", "len": 19}
+{"seq": 707, "ts": 270309, "dir": "phase", "link": -1, "phase": "pre-write-level-10-wide", "msg": "pre-write-level-10-wide"}
+{"seq": 708, "ts": 270768, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540BDE087A00CD09001A000C0000000052B701", "len": 19}
+{"seq": 709, "ts": 271268, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540BDE087A00D009001A000C0000000052B801", "len": 19}
+{"seq": 710, "ts": 271768, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540BDE087A00D309001A000C0000000052B801", "len": 19}
+{"seq": 711, "ts": 271804, "dir": "info", "link": 0, "phase": "pre-write-level-10-wide", "msg": "gatt 5 svc ftms=1"}
+{"seq": 712, "ts": 272368, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540BC0087800D6090019000C0000000052B901", "len": 19}
+{"seq": 713, "ts": 272818, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540BC0087800D9090019000C0000000052B901", "len": 19}
+{"seq": 714, "ts": 273368, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540BC0087800DC090019000C0000000052BA01", "len": 19}
+{"seq": 715, "ts": 273918, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540B98087600DF090019000C0000000052BA01", "len": 19}
+{"seq": 716, "ts": 274418, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540B98087600E2090019000C0000000052BB01", "len": 19}
+{"seq": 717, "ts": 274918, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540B48087200E4090018000C0000000051BB01", "len": 19}
+{"seq": 718, "ts": 275468, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540B48087200E6090018000C0000000051BC01", "len": 19}
+{"seq": 719, "ts": 275968, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540B70087400E9090018000C0000000051BC01", "len": 19}
+{"seq": 720, "ts": 276568, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540B70087400EC090018000C0000000051BD01", "len": 19}
+{"seq": 721, "ts": 276733, "dir": "info", "link": 0, "phase": "pre-write-level-10-wide", "msg": "gatt 5 svc ftms=1"}
+{"seq": 722, "ts": 277068, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540B70087400EF090018000C0000000051BD01", "len": 19}
+{"seq": 723, "ts": 277568, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540B70087400F2090018000C0000000051BE01", "len": 19}
+{"seq": 724, "ts": 278118, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540B98087600F5090019000C0000000051BE01", "len": 19}
+{"seq": 725, "ts": 278618, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540B98087600F8090019000C0000000051BF01", "len": 19}
+{"seq": 726, "ts": 279118, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540B98087600FB090019000C0000000052BF01", "len": 19}
+{"seq": 727, "ts": 279668, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540B98087600FE090019000C0000000052C001", "len": 19}
+{"seq": 728, "ts": 280168, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540B98087600010A0019000C0000000052C001", "len": 19}
+{"seq": 729, "ts": 280768, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540B98087600040A0019000C0000000052C101", "len": 19}
+{"seq": 730, "ts": 281268, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540BC0087800070A0019000C0000000052C101", "len": 19}
+{"seq": 731, "ts": 281818, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540BC00878000A0A0019000C0000000051C201", "len": 19}
+{"seq": 732, "ts": 282268, "dir": "notify", "link": 0, "phase": "pre-write-level-10-wide", "uuid": "2AD2", "hex": "540B980876000D0A0019000C0000000051C201", "len": 19}
+{"seq": 733, "ts": 282492, "dir": "phase", "link": -1, "phase": "write-level-10-wide", "msg": "write-level-10-wide"}
+{"seq": 734, "ts": 282717, "dir": "write", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD9", "hex": "046400", "len": 3}
+{"seq": 735, "ts": 282718, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD9", "hex": "800401", "len": 3}
+{"seq": 736, "ts": 282719, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540B98087600100A0019000C0000000051C301", "len": 19}
+{"seq": 737, "ts": 282722, "dir": "resp", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD9", "hex": "800401", "len": 3}
+{"seq": 738, "ts": 283218, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540B98087600130A006C000C0000000051C301", "len": 19}
+{"seq": 739, "ts": 283718, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540B98087600160A006C000C0000000050C401", "len": 19}
+{"seq": 740, "ts": 284268, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540B98087600190A006C000C0000000050C401", "len": 19}
+{"seq": 741, "ts": 284768, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540B980876001C0A006C000C0000000050C501", "len": 19}
+{"seq": 742, "ts": 285318, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540B02086E001E0A0062000C0000000050C501", "len": 19}
+{"seq": 743, "ts": 285818, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540B02086E00200A0062000C0000000050C601", "len": 19}
+{"seq": 744, "ts": 286418, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540BFE066000220A0051000C000000004FC601", "len": 19}
+{"seq": 745, "ts": 286918, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540BFE066000240A0051000D000000004FC701", "len": 19}
+{"seq": 746, "ts": 287418, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540BFE066000260A0051000D000000004FC701", "len": 19}
+{"seq": 747, "ts": 287968, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540BAE065C00280A004D000D000000004FC801", "len": 19}
+{"seq": 748, "ts": 288468, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540BAE065C002A0A004D000D0000000050C801", "len": 19}
+{"seq": 749, "ts": 288968, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540B1C0762002C0A0054000D0000000050C901", "len": 19}
+{"seq": 750, "ts": 289518, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540B1C0762002E0A0054000D0000000050C901", "len": 19}
+{"seq": 751, "ts": 290018, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540B1C076200300A0054000D0000000050CA01", "len": 19}
+{"seq": 752, "ts": 290568, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540BFE066000320A0051000D0000000051CA01", "len": 19}
+{"seq": 753, "ts": 291118, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540BFE066000340A0051000D0000000051CB01", "len": 19}
+{"seq": 754, "ts": 291618, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540B44076400360A0056000D0000000051CB01", "len": 19}
+{"seq": 755, "ts": 292118, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540B44076400380A0056000D0000000051CC01", "len": 19}
+{"seq": 756, "ts": 292668, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540B6C0766003A0A0058000D0000000052CC01", "len": 19}
+{"seq": 757, "ts": 293168, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540B6C0766003C0A0058000D0000000052CD01", "len": 19}
+{"seq": 758, "ts": 293718, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540B440764003E0A0056000D0000000052CD01", "len": 19}
+{"seq": 759, "ts": 294218, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540B44076400400A0056000D0000000052CE01", "len": 19}
+{"seq": 760, "ts": 294818, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD2", "hex": "540B44076400420A0056000D0000000053CE01", "len": 19}
+{"seq": 761, "ts": 295017, "dir": "write", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD9", "hex": "0801", "len": 2}
+{"seq": 762, "ts": 295018, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD9", "hex": "800801", "len": 3}
+{"seq": 763, "ts": 295022, "dir": "resp", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD9", "hex": "800801", "len": 3}
+{"seq": 764, "ts": 295071, "dir": "phase", "link": -1, "phase": "idle", "msg": "idle"}
+{"seq": 765, "ts": 295217, "dir": "write", "link": 0, "phase": "idle", "uuid": "2AD9", "hex": "0801", "len": 2}
+{"seq": 766, "ts": 295218, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD9", "hex": "800801", "len": 3}
+{"seq": 767, "ts": 295222, "dir": "resp", "link": 0, "phase": "idle", "uuid": "2AD9", "hex": "800801", "len": 3}

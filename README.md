@@ -1,9 +1,14 @@
 # esp32.ftmsprobe
 
 Fernsteuerbarer GATT-Explorer am Ergometer. Die Sonde funkt, die Cursor-CLI im
-Debian-LXC fuehrt Protokoll: sie faehrt die vier Schritte aus
-[docs/ergometer/BLE-SCAN.md](../docs/ergometer/BLE-SCAN.md) per HTTP ab und legt
-Rohbytes plus ausgefuellten Bericht in `docs/ergometer/scan-<datum>/`.
+Debian-LXC fuehrt Protokoll: sie faehrt die vier Schritte aus der BLE-Scan-
+Checkliste per HTTP ab und legt Rohbytes plus ausgefuellten Bericht in
+`docs/ergometer/scan-<datum>/`.
+
+**Laborergebnis Hammer Varon XTR II (2026-09-10):**
+[docs/ergometer/ERGEBNISBERICHT.md](docs/ergometer/ERGEBNISBERICHT.md) —
+Ausgang 1 (Standard-FTMS, Control offen). Rohdaten unter
+[docs/ergometer/scan-20260910/](docs/ergometer/scan-20260910/).
 
 Kein Wegwurf-Code. Die Firmware ist die erste Iteration der BLE-Schicht von
 `esp32.ergo`; `BleProbe` wird dort zu `BleCentral` plus `FtmsClient`, und

@@ -370,7 +370,9 @@ class Runner:
         if self.args.mac:
             pick = next((x for x in devs if x["mac"].lower() == self.args.mac.lower()), None)
             if not pick:
-                raise ProbeError(f"{self.args.mac} war im Scan nicht zu sehen")
+                warn(f"{self.args.mac} war im Scan nicht zu sehen — verbinde trotzdem")
+                pick = {"mac": self.args.mac.lower(), "name": "(nicht im Scan)",
+                        "rssi": None, "ftms": None, "services": []}
         else:
             pick = next((x for x in devs if x.get("ftms")), None)
             if not pick:
@@ -565,12 +567,16 @@ class Runner:
         if self.link is None:
             raise ProbeError("kein Link offen")
 
-        # Reihenfolge ist nicht beliebig: ohne aktive Indications kommt keine
-        # Antwort auf 0x00, und dann sieht Request Control wie ein Fehler aus.
+        # Spec: Indicate. Manche Bikes liefern die CP-Antwort nur als Notify.
         r = self.p.subscribe(UUID_CONTROL, "indicate", self.link)
         if not r.get("ok"):
-            raise ProbeError(f"Indications auf 0x2AD9 fehlgeschlagen: {r.get('error')}")
-        good("Indications auf 0x2AD9 aktiv")
+            warn(f"Indicate auf 0x2AD9 nicht moeglich ({r.get('error')}) — versuche Notify")
+            r = self.p.subscribe(UUID_CONTROL, "notify", self.link)
+            if not r.get("ok"):
+                raise ProbeError(f"Notify/Indicate auf 0x2AD9 fehlgeschlagen: {r.get('error')}")
+            good("Notify auf 0x2AD9 aktiv (Bike ohne Indicate)")
+        else:
+            good("Indications auf 0x2AD9 aktiv")
         st = self.p.subscribe(UUID_STATUS, "notify", self.link)
         if st.get("ok"):
             good("Notify auf 0x2ADA aktiv")

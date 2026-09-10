@@ -1,0 +1,131 @@
+{
+  "ok": true,
+  "scanning": false,
+  "count": 9,
+  "bikeMac": "c2:32:a5:1e:bf:b5",
+  "hrMac": "",
+  "devices": [
+    {
+      "mac": "6c:70:cb:f0:08:65",
+      "name": "",
+      "rssi": -75,
+      "addrType": 0,
+      "advType": 3,
+      "ageMs": 8068,
+      "seen": 1,
+      "ftms": false,
+      "hr": false,
+      "services": [],
+      "payload": "1BFF750042040180666C70CBF008656E70CBF0086401C8CC8D8B02EC"
+    },
+    {
+      "mac": "7c:37:38:7c:4b:7c",
+      "name": "",
+      "rssi": -57,
+      "addrType": 1,
+      "advType": 0,
+      "ageMs": 8066,
+      "seen": 1,
+      "ftms": false,
+      "hr": false,
+      "services": [],
+      "payload": "02011A020A0C0AFF4C001005081C9FE9D6"
+    },
+    {
+      "mac": "c8:a6:ef:99:a0:39",
+      "name": "",
+      "rssi": -65,
+      "addrType": 0,
+      "advType": 0,
+      "ageMs": 7941,
+      "seen": 1,
+      "ftms": false,
+      "hr": false,
+      "services": [],
+      "payload": "0201181BFF7500021844A1B806295B3593AFB11B4DFF628E1AE9942720C38A05FF750079BB"
+    },
+    {
+      "mac": "1f:ca:45:c3:63:d2",
+      "name": "",
+      "rssi": -105,
+      "addrType": 1,
+      "advType": 3,
+      "ageMs": 7889,
+      "seen": 1,
+      "ftms": false,
+      "hr": false,
+      "services": [],
+      "payload": "1E16F3FE4A17234E3634531132177230C09BB9902C4DD6B62179ACCB9D12CC"
+    },
+    {
+      "mac": "10:89:ac:60:75:57",
+      "name": "",
+      "rssi": -58,
+      "addrType": 1,
+      "advType": 0,
+      "ageMs": 7715,
+      "seen": 1,
+      "ftms": false,
+      "hr": false,
+      "services": [],
+      "payload": "0201021716F1FC0409884EDC24B5ED271C4088B4D034873044B5BF"
+    },
+    {
+      "mac": "53:49:12:1e:84:05",
+      "name": "",
+      "rssi": -63,
+      "addrType": 1,
+      "advType": 0,
+      "ageMs": 7370,
+      "seen": 1,
+      "ftms": false,
+      "hr": false,
+      "services": [],
+      "payload": "02011A0AFF4C0010052418654170020A00"
+    },
+    {
+      "mac": "66:78:72:a8:00:de",
+      "name": "",
+      "rssi": -67,
+      "addrType": 1,
+      "advType": 0,
+      "ageMs": 6585,
+      "seen": 1,
+      "ftms": false,
+      "hr": false,
+      "services": [],
+      "payload": "02011A0BFF4C001006231E740BEC1B020A0014FF4C000100000000000000000000000080000000"
+    },
+    {
+      "mac": "5e:c8:ee:ec:aa:79",
+      "name": "Wohnzimmer",
+      "rssi": -67,
+      "addrType": 1,
+      "advType": 0,
+      "ageMs": 2566,
+      "seen": 1,
+      "ftms": false,
+      "hr": false,
+      "services": [
+        {
+          "uuid": "FEA0",
+          "vendor": false
+        }
+      ],
+      "payload": "0201020303A0FE1016A0FE03FA8FCA66C0D46C3032359EFF0B09576F686E7A696D6D6572"
+    },
+    {
+      "mac": "d3:6e:96:55:3f:87",
+      "name": "",
+      "rssi": -63,
+      "addrType": 1,
+      "advType": 3,
+      "ageMs": 444,
+      "seen": 1,
+      "ftms": false,
+      "hr": false,
+      "services": [],
+      "payload": "07FF4C0012020001"
+    }
+  ]
+}

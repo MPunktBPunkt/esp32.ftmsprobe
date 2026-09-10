@@ -1,0 +1,30 @@
+{"seq": 40, "ts": 116980, "dir": "write", "link": 0, "phase": "idle", "uuid": "2AD9", "hex": "0801", "len": 2, "msg": "panic stop"}
+{"seq": 77, "ts": 193880, "dir": "write", "link": 0, "phase": "idle", "uuid": "2AD9", "hex": "0801", "len": 2, "msg": "panic stop"}
+{"seq": 135, "ts": 48418, "dir": "info", "link": 0, "phase": "idle", "uuid": "2AD9", "msg": "sub notify"}
+{"seq": 315, "ts": 80317, "dir": "write", "link": 0, "phase": "idle", "uuid": "2AD9", "hex": "00", "len": 1}
+{"seq": 317, "ts": 80318, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD9", "hex": "800001", "len": 3}
+{"seq": 318, "ts": 80322, "dir": "resp", "link": 0, "phase": "idle", "uuid": "2AD9", "hex": "800001", "len": 3}
+{"seq": 398, "ts": 100418, "dir": "write", "link": 0, "phase": "idle", "uuid": "2AD9", "hex": "0801", "len": 2, "msg": "panic stop"}
+{"seq": 399, "ts": 100418, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD9", "hex": "800801", "len": 3}
+{"seq": 594, "ts": 220668, "dir": "info", "link": 0, "phase": "pedaling", "uuid": "2AD9", "msg": "sub notify"}
+{"seq": 595, "ts": 220867, "dir": "write", "link": 0, "phase": "pedaling", "uuid": "2AD9", "hex": "00", "len": 1}
+{"seq": 597, "ts": 220868, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD9", "hex": "800001", "len": 3}
+{"seq": 599, "ts": 220872, "dir": "resp", "link": 0, "phase": "pedaling", "uuid": "2AD9", "hex": "800001", "len": 3}
+{"seq": 600, "ts": 221067, "dir": "write", "link": 0, "phase": "pedaling", "uuid": "2AD9", "hex": "07", "len": 1}
+{"seq": 601, "ts": 221068, "dir": "notify", "link": 0, "phase": "pedaling", "uuid": "2AD9", "hex": "800701", "len": 3}
+{"seq": 602, "ts": 221072, "dir": "resp", "link": 0, "phase": "pedaling", "uuid": "2AD9", "hex": "800701", "len": 3}
+{"seq": 629, "ts": 233567, "dir": "write", "link": 0, "phase": "write-power-100", "uuid": "2AD9", "hex": "056400", "len": 3}
+{"seq": 630, "ts": 233568, "dir": "notify", "link": 0, "phase": "write-power-100", "uuid": "2AD9", "hex": "800501", "len": 3}
+{"seq": 631, "ts": 233572, "dir": "resp", "link": 0, "phase": "write-power-100", "uuid": "2AD9", "hex": "800501", "len": 3}
+{"seq": 680, "ts": 258167, "dir": "write", "link": 0, "phase": "write-level-10", "uuid": "2AD9", "hex": "040A", "len": 2}
+{"seq": 681, "ts": 258168, "dir": "notify", "link": 0, "phase": "write-level-10", "uuid": "2AD9", "hex": "800401", "len": 3}
+{"seq": 683, "ts": 258172, "dir": "resp", "link": 0, "phase": "write-level-10", "uuid": "2AD9", "hex": "800401", "len": 3}
+{"seq": 734, "ts": 282717, "dir": "write", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD9", "hex": "046400", "len": 3}
+{"seq": 735, "ts": 282718, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD9", "hex": "800401", "len": 3}
+{"seq": 737, "ts": 282722, "dir": "resp", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD9", "hex": "800401", "len": 3}
+{"seq": 761, "ts": 295017, "dir": "write", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD9", "hex": "0801", "len": 2}
+{"seq": 762, "ts": 295018, "dir": "notify", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD9", "hex": "800801", "len": 3}
+{"seq": 763, "ts": 295022, "dir": "resp", "link": 0, "phase": "write-level-10-wide", "uuid": "2AD9", "hex": "800801", "len": 3}
+{"seq": 765, "ts": 295217, "dir": "write", "link": 0, "phase": "idle", "uuid": "2AD9", "hex": "0801", "len": 2}
+{"seq": 766, "ts": 295218, "dir": "notify", "link": 0, "phase": "idle", "uuid": "2AD9", "hex": "800801", "len": 3}
+{"seq": 767, "ts": 295222, "dir": "resp", "link": 0, "phase": "idle", "uuid": "2AD9", "hex": "800801", "len": 3}

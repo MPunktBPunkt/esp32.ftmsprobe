@@ -1,0 +1,369 @@
+{
+  "link": 0,
+  "mac": "c2:32:a5:1e:bf:b5",
+  "name": "",
+  "addrType": 0,
+  "rssi": -53,
+  "services": [
+    {
+      "uuid": "1800",
+      "label": "Generic Access",
+      "vendor": false,
+      "chars": [
+        {
+          "uuid": "2A00",
+          "label": "Device Name",
+          "handle": 3,
+          "props": {
+            "read": true,
+            "write": false,
+            "writeNR": false,
+            "notify": false,
+            "indicate": false,
+            "broadcast": false
+          }
+        },
+        {
+          "uuid": "2A01",
+          "label": "Appearance",
+          "handle": 5,
+          "props": {
+            "read": true,
+            "write": false,
+            "writeNR": false,
+            "notify": false,
+            "indicate": false,
+            "broadcast": false
+          }
+        },
+        {
+          "uuid": "2AC9",
+          "handle": 7,
+          "props": {
+            "read": true,
+            "write": false,
+            "writeNR": false,
+            "notify": false,
+            "indicate": false,
+            "broadcast": false
+          }
+        }
+      ]
+    },
+    {
+      "uuid": "1801",
+      "label": "Generic Attribute",
+      "vendor": false,
+      "chars": [
+        {
+          "uuid": "2A05",
+          "handle": 10,
+          "props": {
+            "read": false,
+            "write": false,
+            "writeNR": false,
+            "notify": false,
+            "indicate": true,
+            "broadcast": false
+          },
+          "descriptors": [
+            {
+              "uuid": "2902",
+              "label": "CCCD",
+              "handle": 11
+            }
+          ]
+        },
+        {
+          "uuid": "2B29",
+          "handle": 13,
+          "props": {
+            "read": true,
+            "write": true,
+            "writeNR": false,
+            "notify": false,
+            "indicate": false,
+            "broadcast": false
+          }
+        },
+        {
+          "uuid": "2B2A",
+          "handle": 15,
+          "props": {
+            "read": true,
+            "write": false,
+            "writeNR": false,
+            "notify": false,
+            "indicate": false,
+            "broadcast": false
+          }
+        }
+      ]
+    },
+    {
+      "uuid": "180A",
+      "label": "Device Information",
+      "vendor": false,
+      "chars": [
+        {
+          "uuid": "2A29",
+          "label": "Manufacturer Name",
+          "handle": 18,
+          "props": {
+            "read": true,
+            "write": false,
+            "writeNR": false,
+            "notify": false,
+            "indicate": false,
+            "broadcast": false
+          }
+        },
+        {
+          "uuid": "2A24",
+          "label": "Model Number",
+          "handle": 20,
+          "props": {
+            "read": true,
+            "write": false,
+            "writeNR": false,
+            "notify": false,
+            "indicate": false,
+            "broadcast": false
+          }
+        },
+        {
+          "uuid": "2A25",
+          "label": "Serial Number",
+          "handle": 22,
+          "props": {
+            "read": true,
+            "write": false,
+            "writeNR": false,
+            "notify": false,
+            "indicate": false,
+            "broadcast": false
+          }
+        },
+        {
+          "uuid": "2A27",
+          "label": "Hardware Revision",
+          "handle": 24,
+          "props": {
+            "read": true,
+            "write": false,
+            "writeNR": false,
+            "notify": false,
+            "indicate": false,
+            "broadcast": false
+          }
+        },
+        {
+          "uuid": "2A26",
+          "label": "Firmware Revision",
+          "handle": 26,
+          "props": {
+            "read": true,
+            "write": false,
+            "writeNR": false,
+            "notify": false,
+            "indicate": false,
+            "broadcast": false
+          }
+        },
+        {
+          "uuid": "2A28",
+          "label": "Software Revision",
+          "handle": 28,
+          "props": {
+            "read": true,
+            "write": false,
+            "writeNR": false,
+            "notify": false,
+            "indicate": false,
+            "broadcast": false
+          }
+        },
+        {
+          "uuid": "2A23",
+          "handle": 30,
+          "props": {
+            "read": true,
+            "write": false,
+            "writeNR": false,
+            "notify": false,
+            "indicate": false,
+            "broadcast": false
+          }
+        },
+        {
+          "uuid": "2A2A",
+          "handle": 32,
+          "props": {
+            "read": true,
+            "write": false,
+            "writeNR": false,
+            "notify": false,
+            "indicate": false,
+            "broadcast": false
+          }
+        },
+        {
+          "uuid": "2A50",
+          "handle": 34,
+          "props": {
+            "read": true,
+            "write": false,
+            "writeNR": false,
+            "notify": false,
+            "indicate": false,
+            "broadcast": false
+          }
+        }
+      ]
+    },
+    {
+      "uuid": "1850",
+      "vendor": false,
+      "chars": [
+        {
+          "uuid": "2C00",
+          "handle": 37,
+          "props": {
+            "read": false,
+            "write": false,
+            "writeNR": true,
+            "notify": false,
+            "indicate": false,
+            "broadcast": false
+          }
+        },
+        {
+          "uuid": "2C01",
+          "handle": 39,
+          "props": {
+            "read": true,
+            "write": false,
+            "writeNR": false,
+            "notify": true,
+            "indicate": false,
+            "broadcast": false
+          },
+          "descriptors": [
+            {
+              "uuid": "2902",
+              "label": "CCCD",
+              "handle": 40
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uuid": "1826",
+      "label": "Fitness Machine Service",
+      "vendor": false,
+      "chars": [
+        {
+          "uuid": "2ACE",
+          "label": "Cross Trainer Data",
+          "handle": 43,
+          "props": {
+            "read": false,
+            "write": false,
+            "writeNR": false,
+            "notify": true,
+            "indicate": false,
+            "broadcast": false
+          },
+          "descriptors": [
+            {
+              "uuid": "2902",
+              "label": "CCCD",
+              "handle": 44
+            }
+          ]
+        },
+        {
+          "uuid": "2AD9",
+          "label": "Fitness Machine Control Point",
+          "handle": 46,
+          "props": {
+            "read": false,
+            "write": true,
+            "writeNR": false,
+            "notify": true,
+            "indicate": false,
+            "broadcast": false
+          },
+          "descriptors": [
+            {
+              "uuid": "2902",
+              "label": "CCCD",
+              "handle": 47
+            }
+          ]
+        },
+        {
+          "uuid": "2AD6",
+          "label": "Supported Resistance Level Range",
+          "handle": 49,
+          "props": {
+            "read": true,
+            "write": false,
+            "writeNR": false,
+            "notify": false,
+            "indicate": false,
+            "broadcast": false
+          },
+          "descriptors": [
+            {
+              "uuid": "2902",
+              "label": "CCCD",
+              "handle": 50
+            }
+          ]
+        },
+        {
+          "uuid": "2ACC",
+          "label": "Fitness Machine Feature",
+          "handle": 52,
+          "props": {
+            "read": true,
+            "write": false,
+            "writeNR": false,
+            "notify": false,
+            "indicate": false,
+            "broadcast": false
+          }
+        },
+        {
+          "uuid": "2AD2",
+          "label": "Indoor Bike Data",
+          "handle": 54,
+          "props": {
+            "read": false,
+            "write": false,
+            "writeNR": false,
+            "notify": true,
+            "indicate": false,
+            "broadcast": false
+          },
+          "descriptors": [
+            {
+              "uuid": "2902",
+              "label": "CCCD",
+              "handle": 55
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "ftms": true,
+    "controlPoint": true,
+    "indoorBikeData": true,
+    "vendorServices": 0,
+    "verdict": "ftms-mit-controlpoint"
+  }
+}

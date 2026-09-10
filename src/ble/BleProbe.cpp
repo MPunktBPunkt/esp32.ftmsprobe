@@ -482,8 +482,7 @@ bool BleProbe::dumpGatt(int link, JsonObject out, char* err, size_t errLen) {
         so["uuid"] = skey;
         const char* slabel = probeUuidLabel(skey.c_str());
         if (slabel) so["label"] = slabel;
-        so["start"] = svc->getStartHandle();
-        so["end"] = svc->getEndHandle();
+        // NimBLE 1.4.x: getStartHandle/getEndHandle sind privat — Char-Handles reichen.
         bool vendor = probeUuidIsVendorSuspect(skey.c_str());
         so["vendor"] = vendor;
         if (vendor) vendorCount++;
@@ -593,8 +592,10 @@ bool BleProbe::subscribe(int link, const char* svcKey, const char* chrKey, bool 
             if (err) snprintf(err, errLen, "%s kann keine Notifications", key.c_str());
             return false;
         }
-        // subscribe(true, ...) schreibt 0x0001 in die CCCD, subscribe(false, ...) 0x0002
-        if (!c->subscribe(!indicate, probeNotifyCb, true)) {
+        // Manche Peripherals antworten auf CCCD-Writes nicht (Write-Response),
+        // obwohl das Abo greift — dann mit response=false nachziehen.
+        if (!c->subscribe(!indicate, probeNotifyCb, true) &&
+            !c->subscribe(!indicate, probeNotifyCb, false)) {
             if (err) snprintf(err, errLen, "subscribe auf %s fehlgeschlagen", key.c_str());
             return false;
         }
@@ -683,15 +684,17 @@ bool BleProbe::writeChar(int link, const char* svcKey, const char* chrKey, const
         if (v.modified) out["guard"]["hexSent"] = NetUtil::toHex(payload, plen);
 
         if (awaitIndication) {
+            // Spec: Indicate. Manche Bikes (u.a. dieses Hammer/TC-Geraet) melden
+            // die Antwort nur als Notify — beides akzeptieren.
             bool subscribed = false;
             for (uint8_t i = 0; i < l.subCount; i++) {
-                if (strcasecmp(l.subs[i].uuid, key.c_str()) == 0 && l.subs[i].indicate)
+                if (strcasecmp(l.subs[i].uuid, key.c_str()) == 0)
                     subscribed = true;
             }
             if (!subscribed) {
                 if (err)
                     snprintf(err, errLen,
-                             "Indications auf %s erst aktivieren, sonst kommt keine Antwort",
+                             "Notify/Indicate auf %s erst aktivieren, sonst kommt keine Antwort",
                              key.c_str());
                 return false;
             }

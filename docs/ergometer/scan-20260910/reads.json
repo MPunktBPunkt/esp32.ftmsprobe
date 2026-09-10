@@ -1,0 +1,79 @@
+{
+  "2ACC": {
+    "label": "Fitness Machine Feature",
+    "hex": "A646000004200000",
+    "len": 8,
+    "parsed": {
+      "machine_raw": 18086,
+      "target_raw": 8196,
+      "machine": [
+        "Cadence",
+        "Total Distance",
+        "Pace",
+        "Resistance Level",
+        "Expended Energy",
+        "Heart Rate Measurement",
+        "Power Measurement"
+      ],
+      "target": [
+        "Resistance Target",
+        "Indoor Bike Simulation Parameters"
+      ],
+      "supports_power_target": false,
+      "supports_resistance_target": true,
+      "supports_hr_target": false,
+      "supports_sim": true
+    }
+  },
+  "2AD6": {
+    "label": "Supported Resistance Level Range",
+    "hex": "0A00A0000A00",
+    "len": 6,
+    "parsed": {
+      "raw": [
+        10,
+        160,
+        10
+      ],
+      "as_spec_0p1": {
+        "min": 1.0,
+        "max": 16.0,
+        "increment": 1.0
+      },
+      "as_levels": {
+        "min": 10,
+        "max": 160,
+        "increment": 10
+      },
+      "likely_unit": "0.1-level"
+    }
+  },
+  "2AD8": {
+    "label": "Supported Power Range",
+    "error": "characteristic 2AD8 nicht gefunden"
+  },
+  "2A00": {
+    "label": "Device Name",
+    "hex": "5443313734",
+    "len": 5,
+    "text": "TC174"
+  },
+  "2A29": {
+    "label": "Manufacturer Name",
+    "hex": "415352",
+    "len": 3,
+    "text": "ASR"
+  },
+  "2A24": {
+    "label": "Model Number",
+    "hex": "424C452D312E30",
+    "len": 7,
+    "text": "BLE-1.0"
+  },
+  "2A26": {
+    "label": "Firmware Revision",
+    "hex": "362E312E32",
+    "len": 5,
+    "text": "6.1.2"
+  }
+}

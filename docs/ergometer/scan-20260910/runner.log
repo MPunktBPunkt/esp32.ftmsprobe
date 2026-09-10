@@ -1,0 +1,96 @@
+Sonde v0.1.0 auf 192.168.178.88 — ESP32-S3, Heap 118 kB
+Limiter: max 150 W, max Stufe 12, Deadman 20 s, Control erlaubt
+Ausgabe: /home/martin/projects/esphub/nodes/docs/ergometer/scan-20260910
+
+[1m== Schritt 1 — Scan[0m
+    scanne …   5 s     scanne …   3 s     scanne …   1 s     scanne …   0 s                                             9 Geraete
+     -57 dBm  7c:37:38:7c:4b:7c  (ohne Namen)           
+     -58 dBm  10:89:ac:60:75:57  (ohne Namen)           
+     -63 dBm  53:49:12:1e:84:05  (ohne Namen)           
+     -63 dBm  d3:6e:96:55:3f:87  (ohne Namen)           
+     -65 dBm  c8:a6:ef:99:a0:39  (ohne Namen)           
+     -67 dBm  66:78:72:a8:00:de  (ohne Namen)           
+     -67 dBm  5e:c8:ee:ec:aa:79  Wohnzimmer             FEA0
+     -75 dBm  6c:70:cb:f0:08:65  (ohne Namen)           
+    -105 dBm  1f:ca:45:c3:63:d2  (ohne Namen)           
+[33m!! c2:32:a5:1e:bf:b5 war im Scan nicht zu sehen — verbinde trotzdem[0m
+[32mok Kandidat: (nicht im Scan) c2:32:a5:1e:bf:b5 — bewirbt kein 0x1826[0m
+
+[1m== Schritt 2 — Services und Characteristics[0m
+    1800  Generic Access
+        2A00  Device Name                        R
+        2A01  Appearance                         R
+        2AC9                                     R
+    1801  Generic Attribute
+        2A05                                     I
+        2B29                                     RW
+        2B2A                                     R
+    180A  Device Information
+        2A29  Manufacturer Name                  R
+        2A24  Model Number                       R
+        2A25  Serial Number                      R
+        2A27  Hardware Revision                  R
+        2A26  Firmware Revision                  R
+        2A28  Software Revision                  R
+        2A23                                     R
+        2A2A                                     R
+        2A50                                     R
+    1850  
+        2C00                                     
+        2C01                                     RN
+    1826  Fitness Machine Service
+        2ACE  Cross Trainer Data                 N
+        2AD9  Fitness Machine Control Point      WN
+        2AD6  Supported Resistance Level Range   R
+        2ACC  Fitness Machine Feature            R
+        2AD2  Indoor Bike Data                   N
+[32mok 0x1826 vorhanden, Control Point da[0m
+
+[1m== Schritt 3 — Feature- und Bereichs-Reads[0m
+    2ACC  Fitness Machine Feature            A646000004200000  
+    2AD6  Supported Resistance Level Range   0A00A0000A00  
+    2AD8  Supported Power Range              — characteristic 2AD8 nicht gefunden
+    2A00  Device Name                        5443313734  TC174
+    2A29  Manufacturer Name                  415352  ASR
+    2A24  Model Number                       424C452D312E30  BLE-1.0
+    2A26  Firmware Revision                  362E312E32  6.1.2
+        steuerbar: Resistance Target, Indoor Bike Simulation Parameters
+        Widerstand roh [10, 160, 10] → Lesart 0.1-level
+
+[1m== Schritt 4a — Indoor Bike Data (0x2AD2)[0m
+[32mok Notify auf 0x2AD2 aktiv[0m
+    Ruhephase, nicht treten.
+    Ruhe …   9 s     Ruhe …   7 s     Ruhe …   5 s     Ruhe …   3 s     Ruhe …   1 s     Ruhe …   0 s                                             (uebersprungen: Jetzt gleichmaessig treten und Enter druecken.)
+    Trittphase …  37 s     Trittphase …  35 s     Trittphase …  33 s     Trittphase …  31 s     Trittphase …  29 s     Trittphase …  27 s     Trittphase …  25 s     Trittphase …  23 s     Trittphase …  21 s     Trittphase …  19 s     Trittphase …  17 s     Trittphase …  15 s     Trittphase …  13 s     Trittphase …  11 s     Trittphase …   9 s     Trittphase …   7 s     Trittphase …   5 s     Trittphase …   3 s     Trittphase …   1 s     Trittphase …   0 s                                             Ruhe:    23 Pakete  power 25.3W (24.0..26.0)  cadence 60.3rpm (58.0..62.0)  speed 22.5km/h (21.6..23.1)
+    Treten:  77 Pakete  power 25.0W (10.0..26.0)  cadence 59.4rpm (25.0..62.0)  speed 22.1km/h (9.3..23.1)
+    Felder: cadence, distance, elapsed_s, energy_per_hour, energy_per_min, energy_total, heart_rate, power, speed
+    Flags 0x0B54 (Instantaneous Speed, Instantaneous Cadence, Total Distance (uint24), Instantaneous Power, Expended Energy, Heart Rate, Elapsed Time)
+
+[1m== Schritt 4b — Control Point (0x2AD9)[0m
+[33m!! Indicate auf 0x2AD9 nicht moeglich (2AD9 kann keine Indications) — versuche Notify[0m
+[32mok Notify auf 0x2AD9 aktiv (Bike ohne Indicate)[0m
+[32mok Request Control: 00 → 800001 Success[0m
+[32mok Start or Resume: 07 → 800701 Success[0m
+    (uebersprungen: Fuer die Wirkungsmessung durchgehend treten. Enter, wenn du trittst.)
+    Referenz vor Set Target Power 100 W …   9 s     Referenz vor Set Target Power 100 W …   7 s     Referenz vor Set Target Power 100 W …   5 s     Referenz vor Set Target Power 100 W …   3 s     Referenz vor Set Target Power 100 W …   1 s     Referenz vor Set Target Power 100 W …   0 s                                         [32mok Set Target Power 100 W: 056400 → 800501 Success[0m
+    Wirkung von Set Target Power 100 W …   9 s     Wirkung von Set Target Power 100 W …   7 s     Wirkung von Set Target Power 100 W …   5 s     Wirkung von Set Target Power 100 W …   3 s     Wirkung von Set Target Power 100 W …   1 s     Wirkung von Set Target Power 100 W …   0 s                                             vor:     23 Pakete  power 23.7W (0.0..28.0)  cadence 55.8rpm (0.0..65.0)  speed 20.8km/h (0.0..24.2)
+    nach:    23 Pakete  power 0.0W (0.0..0.0)  cadence 0.0rpm (0.0..0.0)  speed 0.0km/h (0.0..0.0)
+    Delta: power -23.7, cadence -55.8, speed -20.8
+    (uebersprungen: Hat der Widerstand angezogen? (j/n/unklar))
+[32mok Befund: wirkt — Power -23.7 W[0m
+    Referenz vor Set Target Resistance 10 (uint8) …   9 s     Referenz vor Set Target Resistance 10 (uint8) …   7 s     Referenz vor Set Target Resistance 10 (uint8) …   5 s     Referenz vor Set Target Resistance 10 (uint8) …   3 s     Referenz vor Set Target Resistance 10 (uint8) …   1 s     Referenz vor Set Target Resistance 10 (uint8) …   0 s                                         [32mok Set Target Resistance 10 (uint8): 040A → 800401 Success[0m
+    Wirkung von Set Target Resistance 10 (uint8) …   9 s     Wirkung von Set Target Resistance 10 (uint8) …   7 s     Wirkung von Set Target Resistance 10 (uint8) …   5 s     Wirkung von Set Target Resistance 10 (uint8) …   3 s     Wirkung von Set Target Resistance 10 (uint8) …   1 s     Wirkung von Set Target Resistance 10 (uint8) …   0 s                                             vor:     23 Pakete  power 10.6W (0.0..25.0)  cadence 25.7rpm (0.0..59.0)  speed 9.6km/h (0.0..22.0)
+    nach:    23 Pakete  power 24.3W (24.0..26.0)  cadence 58.1rpm (57.0..61.0)  speed 21.6km/h (21.2..22.7)
+    Delta: power +13.7, cadence +32.4, speed +12.0
+    (uebersprungen: Hat der Widerstand angezogen? (j/n/unklar))
+[32mok Befund: wirkt — Power +13.7 W[0m
+    Referenz vor Set Target Resistance 10,0 (sint16, 0,1er) …   9 s     Referenz vor Set Target Resistance 10,0 (sint16, 0,1er) …   7 s     Referenz vor Set Target Resistance 10,0 (sint16, 0,1er) …   5 s     Referenz vor Set Target Resistance 10,0 (sint16, 0,1er) …   3 s     Referenz vor Set Target Resistance 10,0 (sint16, 0,1er) …   1 s     Referenz vor Set Target Resistance 10,0 (sint16, 0,1er) …   0 s                                         [32mok Set Target Resistance 10,0 (sint16, 0,1er): 046400 → 800401 Success[0m
+    Wirkung von Set Target Resistance 10,0 (sint16, 0,1er) …   9 s     Wirkung von Set Target Resistance 10,0 (sint16, 0,1er) …   7 s     Wirkung von Set Target Resistance 10,0 (sint16, 0,1er) …   5 s     Wirkung von Set Target Resistance 10,0 (sint16, 0,1er) …   3 s     Wirkung von Set Target Resistance 10,0 (sint16, 0,1er) …   1 s     Wirkung von Set Target Resistance 10,0 (sint16, 0,1er) …   0 s                                             vor:     23 Pakete  power 24.9W (24.0..26.0)  cadence 59.1rpm (57.0..61.0)  speed 22.0km/h (21.2..22.7)
+    nach:    23 Pakete  power 88.9W (77.0..108.0)  cadence 51.2rpm (46.0..59.0)  speed 19.1km/h (17.1..22.0)
+    Delta: power +64.0, cadence -7.9, speed -2.9
+    (uebersprungen: Hat der Widerstand angezogen? (j/n/unklar))
+[32mok Befund: wirkt — Power +64.0 W[0m
+[32mok Stop: 0801 → 800801 Success[0m
+
+[1m== Bericht[0m
+[32mok /home/martin/projects/esphub/nodes/docs/ergometer/scan-20260910/bericht.md[0m
