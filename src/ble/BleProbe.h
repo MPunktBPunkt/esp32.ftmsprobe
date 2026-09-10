@@ -74,6 +74,10 @@ public:
     void disconnectAllIntentional();
     /** Sofort versuchen, das gemerkte Bike neu zu verbinden. */
     int reconnectBike(char* err, size_t errLen);
+    /** Liest 2ACC/2AD6/2AD8(+2A00) in den Summary-Cache. */
+    void cacheFtmsProfile(int link);
+    /** Labor-Standardabos: Indoor Bike Data + Control Point (Notify). */
+    void armLabSubs(int link);
     void setSuppressReconnect(bool v) { suppressReconnect_ = v; }
     int findLink(const char* mac) const;
     bool linkValid(int link) const;
@@ -148,6 +152,8 @@ private:
     uint32_t liveIbdCount_ = 0;
     char featureHex_[24] = {0};
     char resistanceRangeHex_[24] = {0};
+    char powerRangeHex_[24] = {0};
+    bool powerRangeMissing_ = true;
     char deviceNameCache_[32] = {0};
 
     bool suppressReconnect_ = false;

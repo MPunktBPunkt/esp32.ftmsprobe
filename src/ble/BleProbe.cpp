@@ -344,8 +344,67 @@ int BleProbe::connect(const char* mac, int addrTypeHint, char* err, size_t errLe
     }
     Serial.printf("[PROBE] link %d %s type=%u services=%u\n", slot, l.mac, (unsigned)addrType,
                   (unsigned)l.serviceCount);
+    cacheFtmsProfile(slot);
     updateState();
     return slot;
+}
+
+void BleProbe::cacheFtmsProfile(int link) {
+    if (!linkValid(link)) return;
+    Link& l = links_[link];
+    auto tryRead = [&](const char* uuid, char* dest, size_t destLen) -> bool {
+        NimBLERemoteCharacteristic* c = findChar(l, nullptr, uuid);
+        if (!c || !c->canRead()) return false;
+        std::string v = c->readValue();
+        size_t len = v.size();
+        if (len > kMaxRead) len = kMaxRead;
+        String hx = NetUtil::toHex((const uint8_t*)v.data(), len);
+        if (dest && destLen) {
+            strncpy(dest, hx.c_str(), destLen - 1);
+            dest[destLen - 1] = 0;
+        }
+        if (log_) log_->add(ProbeLog::Read, (int8_t)link, uuid, (const uint8_t*)v.data(), len);
+        return true;
+    };
+
+    tryRead("2ACC", featureHex_, sizeof(featureHex_));
+    tryRead("2AD6", resistanceRangeHex_, sizeof(resistanceRangeHex_));
+    if (tryRead("2AD8", powerRangeHex_, sizeof(powerRangeHex_))) {
+        powerRangeMissing_ = false;
+    } else {
+        powerRangeHex_[0] = 0;
+        powerRangeMissing_ = true;
+    }
+
+    NimBLERemoteCharacteristic* nameChr = findChar(l, nullptr, "2A00");
+    if (nameChr && nameChr->canRead()) {
+        std::string v = nameChr->readValue();
+        size_t len = v.size();
+        if (len > 0 && len < sizeof(deviceNameCache_)) {
+            memcpy(deviceNameCache_, v.data(), len);
+            deviceNameCache_[len] = 0;
+            if (log_)
+                log_->add(ProbeLog::Read, (int8_t)link, "2A00", (const uint8_t*)v.data(), len);
+            if (!l.name[0]) strncpy(l.name, deviceNameCache_, sizeof(l.name) - 1);
+        }
+    }
+
+    if (log_) {
+        char msg[40];
+        snprintf(msg, sizeof(msg), "profile %s%s", featureHex_[0] ? "ftms" : "no-ftms",
+                 powerRangeMissing_ ? " no-2AD8" : "");
+        log_->addMsg(ProbeLog::Info, (int8_t)link, msg);
+    }
+}
+
+void BleProbe::armLabSubs(int link) {
+    if (!linkValid(link)) return;
+    JsonDocument tmp;
+    char e2[64] = {0};
+    subscribe(link, nullptr, "2AD2", false, true, tmp.to<JsonObject>(), e2, sizeof(e2));
+    tmp.clear();
+    e2[0] = 0;
+    subscribe(link, nullptr, "2AD9", false, true, tmp.to<JsonObject>(), e2, sizeof(e2));
 }
 
 void BleProbe::releaseLink(int idx) {
@@ -363,6 +422,11 @@ void BleProbe::releaseLink(int idx) {
     l.respSeen = false;
     l.disconnectedAt = millis();
     updateState();
+    if (linkCount() == 0) {
+        // Live-Werte nicht als aktuell ausgeben, wenn kein Link mehr da ist.
+        // Feature/Range-Hex bleiben als Cache fuer Summary/Ergo-Start.
+        liveIbd_ = FtmsIbdSample{};
+    }
 }
 
 bool BleProbe::disconnect(int link) {
@@ -614,6 +678,9 @@ bool BleProbe::readChar(int link, const char* svcKey, const char* chrKey, JsonOb
         strncpy(featureHex_, hx.c_str(), sizeof(featureHex_) - 1);
     } else if (key == "2AD6") {
         strncpy(resistanceRangeHex_, hx.c_str(), sizeof(resistanceRangeHex_) - 1);
+    } else if (key == "2AD8") {
+        strncpy(powerRangeHex_, hx.c_str(), sizeof(powerRangeHex_) - 1);
+        powerRangeMissing_ = false;
     } else if (key == "2A00" && len > 0 && len < sizeof(deviceNameCache_)) {
         memcpy(deviceNameCache_, v.data(), len);
         deviceNameCache_[len] = 0;
@@ -936,12 +1003,7 @@ void BleProbe::loop() {
             }
             int link = connect(cfg_->bikeMac.c_str(), cfg_->bikeAddrType, err, sizeof(err));
             if (link >= 0) {
-                // Standard-Abos fuer Laborarbeit
-                JsonDocument tmp;
-                char e2[64] = {0};
-                subscribe(link, nullptr, "2AD2", false, true, tmp.to<JsonObject>(), e2, sizeof(e2));
-                tmp.clear();
-                subscribe(link, nullptr, "2AD9", false, true, tmp.to<JsonObject>(), e2, sizeof(e2));
+                armLabSubs(link);
             } else if (reconnectTries_ >= 8) {
                 nextReconnectAt_ = 0;
                 if (log_) log_->addMsg(ProbeLog::Err, -1, "reconnect give up");
@@ -972,7 +1034,12 @@ void BleProbe::appendSummaryJson(JsonObject obj) const {
     obj["state"] = probeStateName(state_);
     obj["linkCount"] = linkCount();
     obj["linkLosses"] = linkLosses_;
-    obj["verdict"] = featureHex_[0] ? "ftms-seen" : (linkCount() ? "linked" : "idle");
+    const bool linked = linkCount() > 0;
+    if (linked) {
+        obj["verdict"] = featureHex_[0] ? "ftms-linked" : "linked";
+    } else {
+        obj["verdict"] = featureHex_[0] ? "ftms-cached" : "idle";
+    }
     if (cfg_) {
         obj["bikeMac"] = cfg_->bikeMac;
         obj["bikeName"] = cfg_->bikeName;
@@ -983,6 +1050,8 @@ void BleProbe::appendSummaryJson(JsonObject obj) const {
     if (deviceNameCache_[0]) obj["deviceName"] = deviceNameCache_;
     if (featureHex_[0]) obj["featureHex"] = featureHex_;
     if (resistanceRangeHex_[0]) obj["resistanceRangeHex"] = resistanceRangeHex_;
+    if (powerRangeHex_[0]) obj["powerRangeHex"] = powerRangeHex_;
+    obj["powerRangeMissing"] = powerRangeMissing_;
     if (lastPanic_[0]) {
         obj["lastPanic"] = lastPanic_;
         obj["lastPanicAgoMs"] = millis() - lastPanicAt_;
@@ -993,7 +1062,11 @@ void BleProbe::appendSummaryJson(JsonObject obj) const {
     }
     obj["suppressReconnect"] = suppressReconnect_;
     obj["reconnectTries"] = reconnectTries_;
-    ftmsIbdToJson(liveIbd_, obj["live"].to<JsonObject>());
+    {
+        JsonObject live = obj["live"].to<JsonObject>();
+        ftmsIbdToJson(liveIbd_, live);
+        if (!linked && liveIbd_.valid) live["stale"] = true;
+    }
     obj["livePackets"] = liveIbdCount_;
     JsonArray h = obj["hints"].to<JsonArray>();
     h.add("GET /api/probe/summary");

@@ -330,6 +330,7 @@ void App::registerProbeRoutes() {
         if (!probe.dumpGatt(link, doc["gatt"].to<JsonObject>(), derr, sizeof(derr))) {
             doc["gattError"] = derr;
         }
+        probe.appendSummaryJson(doc["summary"].to<JsonObject>());
         NetUtil::sendJson(server, 200, doc);
     });
 
@@ -365,14 +366,10 @@ void App::registerProbeRoutes() {
         JsonDocument doc;
         doc["ok"] = true;
         doc["link"] = link;
-        // Live-Abos setzen
-        char e2[64] = {0};
-        JsonDocument tmp;
-        probe.subscribe(link, nullptr, "2AD2", false, true, tmp.to<JsonObject>(), e2, sizeof(e2));
-        tmp.clear();
-        probe.subscribe(link, nullptr, "2AD9", false, true, tmp.to<JsonObject>(), e2, sizeof(e2));
+        probe.armLabSubs(link);
         char derr[80] = {0};
         probe.dumpGatt(link, doc["gatt"].to<JsonObject>(), derr, sizeof(derr));
+        probe.appendSummaryJson(doc["summary"].to<JsonObject>());
         NetUtil::sendJson(server, 200, doc);
     });
 
@@ -395,32 +392,38 @@ void App::registerProbeRoutes() {
     });
 
     server.on("/api/probe/export", HTTP_GET, [this]() {
-        // Ein Abruf fuer Agent/Tester: Summary-Header + Log-NDJSON
+        // Ein Abruf: Summary-Header + kompletter Log-Ring als NDJSON
+        uint32_t since = server.hasArg("since") ? (uint32_t)strtoul(server.arg("since").c_str(),
+                                                                    nullptr, 10)
+                                                : 0;
+        uint16_t max = server.hasArg("max") ? (uint16_t)server.arg("max").toInt() : PROBE_LOG_SIZE;
+        if (max == 0 || max > PROBE_LOG_SIZE) max = PROBE_LOG_SIZE;
+        String phase = server.hasArg("phase") ? server.arg("phase") : "";
+
+        NetUtil::addCors(server);
+        server.sendHeader(F("Cache-Control"), F("no-store"));
         server.setContentLength(CONTENT_LENGTH_UNKNOWN);
-        server.sendHeader("Content-Type", "application/x-ndjson");
         server.sendHeader("Content-Disposition", "attachment; filename=\"probe-export.ndjson\"");
-        server.sendHeader("Access-Control-Allow-Origin", "*");
         server.send(200, "application/x-ndjson", "");
+
         JsonDocument head;
         head["type"] = "summary";
         probe.appendSummaryJson(head["summary"].to<JsonObject>());
         head["ip"] = NetUtil::localIp();
         head["exportedAt"] = NetUtil::unixNow();
+        head["since"] = since;
         server.sendContent(NetUtil::jsonToString(head));
         server.sendContent("\n");
-        uint32_t since = server.hasArg("since") ? (uint32_t)strtoul(server.arg("since").c_str(),
-                                                                    nullptr, 10)
-                                                : 0;
-        // streamNdjson schreibt selbst Headers — daher manuell die Eintraege:
-        // Nutze vorhandene Log-API indirekt: wir lesen via stream in Stuecken nicht leicht.
-        // Stattdessen kurze Summary + Hinweis auf /api/probe/log
-        JsonDocument tip;
-        tip["type"] = "hint";
-        tip["log"] = "/api/probe/log?since=0&max=768";
-        tip["report"] = "docs/ergometer/ERGEBNISBERICHT.md";
-        server.sendContent(NetUtil::jsonToString(tip));
+
+        uint16_t n = log.appendNdjson(server, since, max, phase.length() ? phase.c_str() : nullptr);
+
+        JsonDocument foot;
+        foot["type"] = "export-end";
+        foot["logLines"] = n;
+        foot["report"] = "docs/ergometer/ERGEBNISBERICHT.md";
+        server.sendContent(NetUtil::jsonToString(foot));
         server.sendContent("\n");
-        (void)since;
+        server.sendContent("");
     });
 
     server.on("/api/probe/gatt", HTTP_GET, [this]() {

@@ -49,6 +49,10 @@ public:
     uint16_t streamNdjson(WebServer& server, uint32_t since, uint16_t max,
                           const char* phaseFilter);
 
+    /** Wie streamNdjson, aber ohne HTTP-Header — fuer /api/probe/export. */
+    uint16_t appendNdjson(WebServer& server, uint32_t since, uint16_t max,
+                          const char* phaseFilter);
+
     void appendStatusJson(JsonObject obj) const;
     void clear();
 

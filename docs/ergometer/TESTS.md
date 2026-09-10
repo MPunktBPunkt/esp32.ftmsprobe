@@ -6,15 +6,19 @@
 |----------|-------|
 | `GET /api/probe/summary` | Kompakter Zustand: Link, Live-IBD, Feature-Hex, Disconnect-Grund, Hints |
 | `GET /api/probe/live` | Nur dekodiertes `0x2AD2` + Links |
-| `GET /api/probe/export` | NDJSON-Header (Summary) + Hinweis auf Log |
+| `GET /api/probe/export` | NDJSON: Summary-Zeile + kompletter Log-Ring (`?since=&max=&phase=`) |
 | `GET /api/probe/log?since=0&max=768` | Roh-JSONL |
 | `GET /api/status` | Voller Status inkl. `probe.live` und Guard |
+
+Nach Connect liest die Sonde automatisch `2ACC` / `2AD6` / `2AD8` (falls vorhanden)
+in den Summary-Cache — auch ohne manuellen Read.
 
 CLI:
 
 ```bash
 ./tools/probe-run.py --host 192.168.178.88 summary
 ./tools/probe-run.py --host 192.168.178.88 live
+curl -o probe-export.ndjson "http://192.168.178.88/api/probe/export"
 ```
 
 Web-UI: Tab **Live** → Summary JSON / Export.

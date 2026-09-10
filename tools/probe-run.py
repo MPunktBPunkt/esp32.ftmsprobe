@@ -1181,8 +1181,8 @@ def main(argv=None) -> int:
     ap.add_argument("command",
                     choices=["all", "scan", "gatt", "read", "bikedata", "control",
                              "dual", "crash", "report", "panic", "status",
-                             "summary", "live", "suite", "watt", "sim"],
-                    help="all=Schritt 1-4; suite=erweiterte Tests; summary/live=Abruf")
+                             "summary", "live", "export", "suite", "watt", "sim"],
+                    help="all=Schritt 1-4; suite=erweiterte Tests; summary/live/export=Abruf")
     ap.add_argument("--host", required=False, default="probe.local",
                     help="IP oder Name der Sonde")
     ap.add_argument("--out", type=Path, default=None, help="Ausgabeordner")
@@ -1215,6 +1215,14 @@ def main(argv=None) -> int:
         return 0
     if args.command == "live":
         print(json.dumps(probe.get("/api/probe/live"), indent=2, ensure_ascii=False))
+        return 0
+    if args.command == "export":
+        outdir.mkdir(parents=True, exist_ok=True)
+        text = probe.get_text("/api/probe/export")
+        path = outdir / "probe-export.ndjson"
+        path.write_text(text, encoding="utf-8")
+        lines = text.count("\n")
+        print(f"wrote {path} ({lines} lines, {len(text)} bytes)")
         return 0
     if args.command == "panic":
         r = probe.panic("runner panic")

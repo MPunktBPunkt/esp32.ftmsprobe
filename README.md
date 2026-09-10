@@ -157,7 +157,7 @@ sind Varianten ohne Reflash testbar.
 | POST | `/api/probe/reconnect` | Auto-Reconnect auf gemerktes Bike |
 | GET | `/api/probe/live` | Dekodiertes Indoor-Bike-Data (`0x2AD2`) |
 | GET | `/api/probe/summary` | Kompakt: Link, Live, Feature-Hex, Disconnect-Grund, Hints |
-| GET | `/api/probe/export` | NDJSON-Header + Log-Hinweis |
+| GET | `/api/probe/export` | NDJSON: Summary + Log-Ring (`since`/`max`/`phase`) |
 | POST | `/api/probe/crash` `{confirm:"crash", mode}` | Crash-Test |
 
 Dazu die Familienrouten: `/api/status`, `/api/config/get`, `/api/config/save`,

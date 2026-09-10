@@ -156,17 +156,12 @@ void ProbeLog::appendLine(const Entry& e, String& buf) const {
     buf += "}\n";
 }
 
-uint16_t ProbeLog::streamNdjson(WebServer& server, uint32_t since, uint16_t max,
+uint16_t ProbeLog::appendNdjson(WebServer& server, uint32_t since, uint16_t max,
                                 const char* phaseFilter) {
     portENTER_CRITICAL(&g_logMux);
     uint16_t snapHead = head_;
     uint16_t snapCount = count_;
     portEXIT_CRITICAL(&g_logMux);
-
-    NetUtil::addCors(server);
-    server.sendHeader(F("Cache-Control"), F("no-store"));
-    server.setContentLength(CONTENT_LENGTH_UNKNOWN);
-    server.send(200, F("application/x-ndjson"), F(""));
 
     uint16_t written = 0;
     String buf;
@@ -190,6 +185,16 @@ uint16_t ProbeLog::streamNdjson(WebServer& server, uint32_t since, uint16_t max,
         }
     }
     if (buf.length()) server.sendContent(buf);
+    return written;
+}
+
+uint16_t ProbeLog::streamNdjson(WebServer& server, uint32_t since, uint16_t max,
+                                const char* phaseFilter) {
+    NetUtil::addCors(server);
+    server.sendHeader(F("Cache-Control"), F("no-store"));
+    server.setContentLength(CONTENT_LENGTH_UNKNOWN);
+    server.send(200, F("application/x-ndjson"), F(""));
+    uint16_t written = appendNdjson(server, since, max, phaseFilter);
     server.sendContent(F(""));
     return written;
 }
