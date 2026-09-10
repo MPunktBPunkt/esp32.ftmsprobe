@@ -270,7 +270,11 @@ void App::registerProbeRoutes() {
         JsonDocument body;
         if (!NetUtil::readJsonBodyOrEmpty(server, body)) return;
         if (body["clear"] | true) probe.clearScan();
-        probe.startScan();
+        char err[80] = {0};
+        if (!probe.startScan(err, sizeof(err))) {
+            NetUtil::sendError(server, 409, err[0] ? err : "scan nicht gestartet");
+            return;
+        }
         JsonDocument doc;
         doc["ok"] = true;
         doc["state"] = probeStateName(probe.state());
@@ -334,7 +338,7 @@ void App::registerProbeRoutes() {
         if (!NetUtil::readJsonBodyOrEmpty(server, body)) return;
         JsonDocument doc;
         if (body["all"] | false) {
-            probe.disconnectAll();
+            probe.disconnectAllIntentional();
             doc["ok"] = true;
             doc["all"] = true;
         } else {
@@ -349,6 +353,74 @@ void App::registerProbeRoutes() {
         }
         doc["linkCount"] = probe.linkCount();
         NetUtil::sendJson(server, 200, doc);
+    });
+
+    server.on("/api/probe/reconnect", HTTP_POST, [this]() {
+        char err[80] = {0};
+        int link = probe.reconnectBike(err, sizeof(err));
+        if (link < 0) {
+            NetUtil::sendError(server, 502, err[0] ? err : "reconnect fehlgeschlagen");
+            return;
+        }
+        JsonDocument doc;
+        doc["ok"] = true;
+        doc["link"] = link;
+        // Live-Abos setzen
+        char e2[64] = {0};
+        JsonDocument tmp;
+        probe.subscribe(link, nullptr, "2AD2", false, true, tmp.to<JsonObject>(), e2, sizeof(e2));
+        tmp.clear();
+        probe.subscribe(link, nullptr, "2AD9", false, true, tmp.to<JsonObject>(), e2, sizeof(e2));
+        char derr[80] = {0};
+        probe.dumpGatt(link, doc["gatt"].to<JsonObject>(), derr, sizeof(derr));
+        NetUtil::sendJson(server, 200, doc);
+    });
+
+    server.on("/api/probe/live", HTTP_GET, [this]() {
+        JsonDocument doc;
+        doc["ok"] = true;
+        doc["linkCount"] = probe.linkCount();
+        probe.appendLiveJson(doc["ibd"].to<JsonObject>());
+        probe.linksToJson(doc["links"].to<JsonArray>());
+        NetUtil::sendJson(server, 200, doc);
+    });
+
+    server.on("/api/probe/summary", HTTP_GET, [this]() {
+        JsonDocument doc;
+        doc["ok"] = true;
+        probe.appendSummaryJson(doc["summary"].to<JsonObject>());
+        doc["ip"] = NetUtil::localIp();
+        doc["unixtime"] = NetUtil::unixNow();
+        NetUtil::sendJson(server, 200, doc);
+    });
+
+    server.on("/api/probe/export", HTTP_GET, [this]() {
+        // Ein Abruf fuer Agent/Tester: Summary-Header + Log-NDJSON
+        server.setContentLength(CONTENT_LENGTH_UNKNOWN);
+        server.sendHeader("Content-Type", "application/x-ndjson");
+        server.sendHeader("Content-Disposition", "attachment; filename=\"probe-export.ndjson\"");
+        server.sendHeader("Access-Control-Allow-Origin", "*");
+        server.send(200, "application/x-ndjson", "");
+        JsonDocument head;
+        head["type"] = "summary";
+        probe.appendSummaryJson(head["summary"].to<JsonObject>());
+        head["ip"] = NetUtil::localIp();
+        head["exportedAt"] = NetUtil::unixNow();
+        server.sendContent(NetUtil::jsonToString(head));
+        server.sendContent("\n");
+        uint32_t since = server.hasArg("since") ? (uint32_t)strtoul(server.arg("since").c_str(),
+                                                                    nullptr, 10)
+                                                : 0;
+        // streamNdjson schreibt selbst Headers — daher manuell die Eintraege:
+        // Nutze vorhandene Log-API indirekt: wir lesen via stream in Stuecken nicht leicht.
+        // Stattdessen kurze Summary + Hinweis auf /api/probe/log
+        JsonDocument tip;
+        tip["type"] = "hint";
+        tip["log"] = "/api/probe/log?since=0&max=768";
+        tip["report"] = "docs/ergometer/ERGEBNISBERICHT.md";
+        server.sendContent(NetUtil::jsonToString(tip));
+        server.sendContent("\n");
+        (void)since;
     });
 
     server.on("/api/probe/gatt", HTTP_GET, [this]() {

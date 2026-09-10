@@ -21,6 +21,10 @@ void ConfigStore::applyDefaults() {
     guardAllowSim = false;
     guardMaxGradePct = 5;
     guardDeadmanS = PROBE_DEADMAN_S_DEFAULT;
+    guardDeadmanMode = "lab";
+    autoReconnect = true;
+    scanWhileLinked = false;
+    bikeAddrType = -1;
     enableNtp = true;
     ntpServer = NTP_SERVER_DEFAULT;
     tz = TZ_DEFAULT;
@@ -58,6 +62,10 @@ void ConfigStore::load() {
     guardAllowSim = prefs.getBool("g_sim", false);  // sicherer Default erzwungen
     guardMaxGradePct = prefs.getUChar("g_grade", guardMaxGradePct);
     guardDeadmanS = prefs.getUShort("g_dead", guardDeadmanS);
+    guardDeadmanMode = prefs.getString("g_dmode", guardDeadmanMode);
+    autoReconnect = prefs.getBool("auto_rc", autoReconnect);
+    scanWhileLinked = prefs.getBool("scan_link", scanWhileLinked);
+    bikeAddrType = (int8_t)prefs.getChar("bike_at", bikeAddrType);
     enableNtp = prefs.getBool("en_ntp", enableNtp);
     ntpServer = prefs.getString("ntp", ntpServer);
     tz = prefs.getString("tz", tz);
@@ -87,6 +95,10 @@ void ConfigStore::save() {
     prefs.putBool("g_sim", guardAllowSim);
     prefs.putUChar("g_grade", guardMaxGradePct);
     prefs.putUShort("g_dead", guardDeadmanS);
+    prefs.putString("g_dmode", guardDeadmanMode);
+    prefs.putBool("auto_rc", autoReconnect);
+    prefs.putBool("scan_link", scanWhileLinked);
+    prefs.putChar("bike_at", (char)bikeAddrType);
     prefs.putBool("en_ntp", enableNtp);
     prefs.putString("ntp", ntpServer);
     prefs.putString("tz", tz);
@@ -121,6 +133,10 @@ void ConfigStore::toJson(JsonObject obj) const {
     obj["guardAllowSim"] = guardAllowSim;
     obj["guardMaxGradePct"] = guardMaxGradePct;
     obj["guardDeadmanS"] = guardDeadmanS;
+    obj["guardDeadmanMode"] = guardDeadmanMode;
+    obj["autoReconnect"] = autoReconnect;
+    obj["scanWhileLinked"] = scanWhileLinked;
+    obj["bikeAddrType"] = bikeAddrType;
     obj["enableNtp"] = enableNtp;
     obj["ntpServer"] = ntpServer;
     obj["tz"] = tz;
@@ -152,6 +168,12 @@ bool ConfigStore::fromJson(JsonVariantConst obj) {
     if (!obj["guardAllowSim"].isNull()) guardAllowSim = obj["guardAllowSim"].as<bool>();
     if (!obj["guardMaxGradePct"].isNull()) guardMaxGradePct = obj["guardMaxGradePct"].as<uint8_t>();
     if (!obj["guardDeadmanS"].isNull()) guardDeadmanS = obj["guardDeadmanS"].as<uint16_t>();
+    guardDeadmanMode = jsonString(obj["guardDeadmanMode"], guardDeadmanMode);
+    if (guardDeadmanMode != "safe" && guardDeadmanMode != "lab" && guardDeadmanMode != "off")
+        guardDeadmanMode = "lab";
+    if (!obj["autoReconnect"].isNull()) autoReconnect = obj["autoReconnect"].as<bool>();
+    if (!obj["scanWhileLinked"].isNull()) scanWhileLinked = obj["scanWhileLinked"].as<bool>();
+    if (!obj["bikeAddrType"].isNull()) bikeAddrType = (int8_t)obj["bikeAddrType"].as<int>();
     if (!obj["enableNtp"].isNull()) enableNtp = obj["enableNtp"].as<bool>();
     ntpServer = jsonString(obj["ntpServer"], ntpServer);
     tz = jsonString(obj["tz"], tz);

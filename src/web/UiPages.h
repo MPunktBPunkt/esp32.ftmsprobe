@@ -70,7 +70,8 @@ border-radius:6px;padding:8px;height:60vh;overflow:auto;white-space:pre-wrap;wor
   <button id="stop">NOT-STOP</button>
 </header>
 <nav>
-  <button data-t="scan" class="on">Scan</button>
+  <button data-t="live" class="on">Live</button>
+  <button data-t="scan">Scan</button>
   <button data-t="gatt">GATT</button>
   <button data-t="ctrl">Control Point</button>
   <button data-t="log">Log</button>
@@ -79,7 +80,28 @@ border-radius:6px;padding:8px;height:60vh;overflow:auto;white-space:pre-wrap;wor
 </nav>
 <main>
 
-<section id="t-scan">
+<section id="t-live">
+  <div class="card"><h2>Live Indoor Bike (0x2AD2)</h2>
+    <div class="row" style="gap:16px;font-family:var(--mono);font-size:18px">
+      <div><span class="hint">Power</span><div id="lv-p">— W</div></div>
+      <div><span class="hint">Cadence</span><div id="lv-c">— rpm</div></div>
+      <div><span class="hint">Speed</span><div id="lv-s">— km/h</div></div>
+      <div><span class="hint">HR</span><div id="lv-h">—</div></div>
+      <div><span class="hint">Dist</span><div id="lv-d">— m</div></div>
+      <div><span class="hint">t</span><div id="lv-t">— s</div></div>
+    </div>
+    <div class="row" style="margin-top:10px">
+      <button class="p" onclick="post('/api/probe/reconnect')">Reconnect Bike</button>
+      <button onclick="setupLive()">Notify 2AD2+2AD9</button>
+      <button onclick="post('/api/probe/disconnect',{all:true})">Trennen</button>
+      <a href="/api/probe/summary" target="_blank"><button>Summary JSON</button></a>
+      <a href="/api/probe/export" download="probe-export.ndjson"><button>Export</button></a>
+      <span class="hint" id="live-info"></span>
+    </div>
+  </div>
+</section>
+
+<section id="t-scan" hidden>
   <div class="card"><h2>Scan</h2>
     <div class="row">
       <button class="p" onclick="scanStart()">Scan starten</button>
@@ -87,6 +109,7 @@ border-radius:6px;padding:8px;height:60vh;overflow:auto;white-space:pre-wrap;wor
       <button onclick="loadDevices()">Liste neu laden</button>
       <span class="hint" id="scan-info"></span>
     </div>
+    <p class="hint">Scan ist waehrend offener Links standardmaessig gesperrt (Config).</p>
   </div>
   <div class="card"><h2>Gefundene Geraete</h2>
     <table><thead><tr><th>Name</th><th>MAC</th><th>RSSI</th><th>Beworbene Services</th><th></th></tr></thead>
@@ -107,10 +130,10 @@ border-radius:6px;padding:8px;height:60vh;overflow:auto;white-space:pre-wrap;wor
 
 <section id="t-ctrl" hidden>
   <div class="card"><h2>Schritt 4 aus BLE-SCAN.md</h2>
-    <p class="hint">Reihenfolge einhalten: erst Indications auf 2AD9, dann Request Control.
-      Jeder Write laeuft durch den Limiter der Firmware.</p>
+    <p class="hint">Dieses Bike: Control Point per <b>Notify</b> (kein Indicate).
+      Deadman-Labor-Modus arm't erst bei Last-Opcodes (04/05/11).</p>
     <div class="row">
-      <button onclick="sub('2AD9','indicate')">1. Indications 2AD9 an</button>
+      <button class="p" onclick="sub('2AD9','notify')">1. Notify 2AD9 an</button>
       <button onclick="sub('2AD2','notify')">Notify 2AD2 an</button>
       <button onclick="sub('2ADA','notify')">Notify 2ADA an</button>
     </div>
@@ -163,13 +186,23 @@ border-radius:6px;padding:8px;height:60vh;overflow:auto;white-space:pre-wrap;wor
       <input id="c-level" size="5"></div>
     <div class="row" style="margin-top:6px"><label class="hint">Deadman [s], 0 = aus</label>
       <input id="c-dead" size="5"></div>
+    <div class="row" style="margin-top:6px"><label class="hint">Deadman-Modus</label>
+      <select id="c-dmode"><option value="lab">lab (nur Last)</option>
+        <option value="safe">safe (jeder Write)</option>
+        <option value="off">off</option></select></div>
     <div class="row" style="margin-top:6px"><label class="hint">0x11 Simulation erlauben</label>
       <input type="checkbox" id="c-sim"></div>
+    <div class="row" style="margin-top:6px"><label class="hint">Auto-Reconnect</label>
+      <input type="checkbox" id="c-arc"></div>
+    <div class="row" style="margin-top:6px"><label class="hint">Scan waehrend Link</label>
+      <input type="checkbox" id="c-swl"></div>
   </div>
-  <div class="card"><h2>Hub</h2>
+  <div class="card"><h2>Hub / Geraet</h2>
     <div class="row"><label class="hint">Host</label><input id="c-host" size="16">
       <label class="hint">Port</label><input id="c-port" size="6"></div>
     <div class="row" style="margin-top:6px"><label class="hint">Name</label><input id="c-name" size="18"></div>
+    <div class="row" style="margin-top:6px"><label class="hint">Bike-MAC</label><input id="c-bike" size="18">
+      <label class="hint">Name</label><input id="c-biken" size="12"></div>
   </div>
   <div class="card"><div class="row">
     <button class="p" onclick="saveCfg()">Speichern</button>
@@ -213,7 +246,7 @@ document.querySelectorAll('nav button').forEach(function(b){
   b.onclick=function(){
     document.querySelectorAll('nav button').forEach(function(x){x.classList.remove('on')});
     b.classList.add('on');
-    ['scan','gatt','ctrl','log','cfg','ota'].forEach(function(t){
+    ['live','scan','gatt','ctrl','log','cfg','ota'].forEach(function(t){
       document.getElementById('t-'+t).hidden=(t!==b.dataset.t)});
     if(b.dataset.t==='cfg')loadCfg();
     if(b.dataset.t==='gatt')loadGatt();
@@ -223,19 +256,45 @@ document.querySelectorAll('nav button').forEach(function(b){
 function renderStatus(s){
   S=s;
   document.getElementById('ver').textContent='v'+s.version+' · '+s.boardLabel+' · '+s.ip;
-  var p=s.probe||{},g=p.guard||{},l=s.log||{};
+  var p=s.probe||{},g=p.guard||{},l=s.log||{},lv=p.live||{};
   var st=document.getElementById('p-state');
   st.textContent=p.state||'?';
   st.className='pill '+(p.state==='LINKED'?'ok':(p.state==='PANIC'?'no':''));
   document.getElementById('p-links').textContent=(p.linkCount||0)+'/'+(p.maxLinks||0)+' Links';
   var d=document.getElementById('p-dead');
-  if(g.armed){d.className='pill am';d.textContent='Deadman '+Math.round((g.remainingMs||0)/1000)+' s'}
-  else{d.className='pill';d.textContent='Deadman aus'}
+  var mode=g.deadmanMode||'lab';
+  if(g.armed){d.className='pill am';d.textContent='Deadman '+Math.round((g.remainingMs||0)/1000)+' s ('+mode+')'}
+  else{d.className='pill';d.textContent='Deadman aus ('+mode+')'}
   document.getElementById('p-log').textContent='seq '+(l.lastSeq||0)+(l.dropped?' ('+l.dropped+' verworfen)':'');
   var n=document.getElementById('p-net');
   n.className='pill '+(s.hubOk?'ok':'no');
   n.textContent=(s.hubOk?'Hub ok':'Hub still')+' · '+Math.round(s.heap/1024)+' kB · '+s.uptime;
+  if(p.lastDisconnect) document.getElementById('live-info').textContent=
+    'last disconnect: '+p.lastDisconnect+(p.lastDisconnectAgoMs!=null?' ('+Math.round(p.lastDisconnectAgoMs/1000)+'s)':'');
+  renderLive(lv);
   renderLinks(p.links||[]);
+}
+function renderLive(lv){
+  if(!lv||!lv.valid){
+    ['lv-p','lv-c','lv-s','lv-h','lv-d','lv-t'].forEach(function(id){
+      var el=document.getElementById(id); if(el && el.textContent.indexOf('—')<0 && !lv) return;
+    });
+    return;
+  }
+  document.getElementById('lv-p').textContent=(lv.power!=null?lv.power:'—')+' W';
+  document.getElementById('lv-c').textContent=(lv.cadence!=null?Number(lv.cadence).toFixed(0):'—')+' rpm';
+  document.getElementById('lv-s').textContent=(lv.speed!=null?Number(lv.speed).toFixed(1):'—')+' km/h';
+  document.getElementById('lv-h').textContent=lv.heartRate!=null?lv.heartRate:'—';
+  document.getElementById('lv-d').textContent=(lv.distance!=null?lv.distance:'—')+' m';
+  document.getElementById('lv-t').textContent=(lv.elapsedS!=null?lv.elapsedS:'—')+' s';
+}
+function setupLive(){
+  if(curLink===null && (S.probe&&S.probe.links&&S.probe.links[0])) curLink=S.probe.links[0].link;
+  if(curLink===null){toast('live-info','kein Link',1);return}
+  Promise.all([
+    post('/api/probe/subscribe',{link:curLink,uuid:'2AD2',mode:'notify',enable:true}),
+    post('/api/probe/subscribe',{link:curLink,uuid:'2AD9',mode:'notify',enable:true})
+  ]).then(function(){toast('live-info','2AD2+2AD9 Notify aktiv')})
 }
 function renderLinks(links){
   var e=document.getElementById('links');
@@ -357,12 +416,12 @@ function pollLog(){
 setInterval(pollLog,1000);
 
 // ── Keepalive ──────────────────────────────────────────
-// Nur solange die Seite sichtbar ist: ein vergessener Tab im Hintergrund
-// soll den Deadman nicht scharf halten.
+// Labor: Deadman nur nach Last-Opcodes. Keepalive alle 4 s, auch im
+// Hintergrund-Tab (sonst trennt der Deadman trotz offenem Fenster).
 setInterval(function(){
   var g=(S.probe||{}).guard||{};
-  if(g.armed&&document.visibilityState==='visible')post('/api/probe/keepalive');
-},5000);
+  if(g.armed)post('/api/probe/keepalive');
+},4000);
 
 document.getElementById('stop').onclick=function(){
   post('/api/probe/panic',{reason:'not-stop per UI'}).then(function(){
@@ -375,9 +434,14 @@ function loadCfg(){get('/api/config/get').then(function(c){
   document.getElementById('c-watt').value=c.guardMaxWatt;
   document.getElementById('c-level').value=c.guardMaxLevel;
   document.getElementById('c-dead').value=c.guardDeadmanS;
+  document.getElementById('c-dmode').value=c.guardDeadmanMode||'lab';
+  document.getElementById('c-arc').checked=!!c.autoReconnect;
+  document.getElementById('c-swl').checked=!!c.scanWhileLinked;
   document.getElementById('c-host').value=c.hubHost;
   document.getElementById('c-port').value=c.hubPort;
   document.getElementById('c-name').value=c.deviceName;
+  document.getElementById('c-bike').value=c.bikeMac||'';
+  document.getElementById('c-biken').value=c.bikeName||'';
 })}
 function saveCfg(){post('/api/config/save',{
   guardAllowControl:document.getElementById('c-ctrl').checked,
@@ -385,9 +449,14 @@ function saveCfg(){post('/api/config/save',{
   guardMaxWatt:+document.getElementById('c-watt').value,
   guardMaxLevel:+document.getElementById('c-level').value,
   guardDeadmanS:+document.getElementById('c-dead').value,
+  guardDeadmanMode:document.getElementById('c-dmode').value,
+  autoReconnect:document.getElementById('c-arc').checked,
+  scanWhileLinked:document.getElementById('c-swl').checked,
   hubHost:document.getElementById('c-host').value,
   hubPort:+document.getElementById('c-port').value,
-  deviceName:document.getElementById('c-name').value
+  deviceName:document.getElementById('c-name').value,
+  bikeMac:document.getElementById('c-bike').value,
+  bikeName:document.getElementById('c-biken').value
 }).then(function(r){toast('cfg-msg',r.ok?'gespeichert':'Fehler',!r.ok);loadCfg()})}
 
 // ── OTA / Crash ────────────────────────────────────────

@@ -2,6 +2,7 @@
 
 #include <ArduinoJson.h>
 #include <NimBLEDevice.h>
+#include "FtmsLive.h"
 #include "ProbeGuard.h"
 #include "ProbeLog.h"
 #include "ProbeTypes.h"
@@ -56,7 +57,8 @@ public:
     void loop();
 
     // ── Scan ────────────────────────────────────────────────────────────────
-    void startScan();
+    /** Startet den Scan. Scheitert, wenn Links offen und scanWhileLinked=false. */
+    bool startScan(char* err = nullptr, size_t errLen = 0);
     void stopScan();
     bool scanning() const { return scanning_; }
     uint8_t scanCount() const { return scanCount_; }
@@ -68,6 +70,11 @@ public:
     int connect(const char* mac, int addrTypeHint, char* err, size_t errLen);
     bool disconnect(int link);
     void disconnectAll();
+    /** Intentional trennen und Auto-Reconnect unterdruecken. */
+    void disconnectAllIntentional();
+    /** Sofort versuchen, das gemerkte Bike neu zu verbinden. */
+    int reconnectBike(char* err, size_t errLen);
+    void setSuppressReconnect(bool v) { suppressReconnect_ = v; }
     int findLink(const char* mac) const;
     bool linkValid(int link) const;
     uint8_t linkCount() const;
@@ -88,9 +95,15 @@ public:
      *  Nicht durch die Config sperrbar. */
     void panic(const char* reason);
 
+    /** Live Indoor-Bike-Sample (aus 0x2AD2-Notifies). */
+    const FtmsIbdSample& liveIbd() const { return liveIbd_; }
+    void appendLiveJson(JsonObject obj) const;
+    void appendSummaryJson(JsonObject obj) const;
+
     ProbeGuard& guard() { return guard_; }
     ProbeState state() const { return state_; }
     uint16_t linkLosses() const { return linkLosses_; }
+    const char* lastDisconnectReason() const { return lastDisconnectReason_; }
 
     void appendStatusJson(JsonObject obj) const;
     void appendIoValues(JsonObject ios) const;
@@ -128,4 +141,16 @@ private:
     uint16_t linkLosses_ = 0;
     char lastPanic_[48] = {0};
     uint32_t lastPanicAt_ = 0;
+    char lastDisconnectReason_[48] = {0};
+    uint32_t lastDisconnectAt_ = 0;
+
+    FtmsIbdSample liveIbd_;
+    uint32_t liveIbdCount_ = 0;
+    char featureHex_[24] = {0};
+    char resistanceRangeHex_[24] = {0};
+    char deviceNameCache_[32] = {0};
+
+    bool suppressReconnect_ = false;
+    uint32_t nextReconnectAt_ = 0;
+    uint8_t reconnectTries_ = 0;
 };

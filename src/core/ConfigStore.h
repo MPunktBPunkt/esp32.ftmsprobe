@@ -41,6 +41,20 @@ public:
     uint8_t guardMaxGradePct = 5;
     /** Deadman-Fenster in Sekunden; 0 schaltet den Deadman ab (nicht empfohlen). */
     uint16_t guardDeadmanS = PROBE_DEADMAN_S_DEFAULT;
+    /**
+     * Deadman-Modus:
+     *   "safe" — nach jedem Control-Write scharf (ausser Stop)
+     *   "lab"  — nur nach Last-Opcodes 04/05/11 (Labor-Default)
+     *   "off"  — nie scharf
+     */
+    String guardDeadmanMode = "lab";
+
+    /** Nach unerwartetem Linkverlust Bike automatisch neu verbinden. */
+    bool autoReconnect = true;
+    /** Scan waehrend offener Links erlauben (Standard aus — stoert den Controller). */
+    bool scanWhileLinked = false;
+    /** Zuletzt erfolgreicher AddrType fuers Bike (0 public, 1 random). -1 = unbekannt. */
+    int8_t bikeAddrType = -1;
 
     bool enableNtp = true;
     String ntpServer = NTP_SERVER_DEFAULT;
@@ -55,5 +69,5 @@ public:
     bool fromJson(JsonVariantConst obj);
 
 private:
-    static constexpr uint8_t kConfigVersion = 1;
+    static constexpr uint8_t kConfigVersion = 2;
 };

@@ -632,6 +632,94 @@ class Runner:
         self.results["control"] = cp
         return cp
 
+    def step_watt(self) -> dict:
+        """Sauberer Watt-Nachtest: durchgehend treten, nur 05, Wirkung messen."""
+        head(f"Watt-Nachtest — Set Target Power {self.args.watt} W")
+        if self.link is None:
+            raise ProbeError("kein Link offen")
+        r = self.p.subscribe(UUID_CONTROL, "notify", self.link)
+        if not r.get("ok"):
+            r = self.p.subscribe(UUID_CONTROL, "indicate", self.link)
+        self.p.subscribe(UUID_BIKE_DATA, "notify", self.link)
+        self.ask("Gleichmaessig treten und Enter — nicht stehen bleiben.")
+        self.p.phase("pedaling")
+        ka = Keepalive(self.p)
+        ka.start()
+        out = {}
+        try:
+            out["request_control"] = self._cp("00", "Request Control")
+            out["start"] = self._cp("07", "Start or Resume")
+            hexcmd = ftms.hexs(ftms.set_target_power(self.args.watt))
+            eff = self.effect(f"watt-{self.args.watt}", hexcmd,
+                              f"Set Target Power {self.args.watt} W")
+            out["effect"] = eff
+            self.results["effects"].append(eff)
+            out["stop"] = self._cp("08 01", "Stop")
+        finally:
+            ka.stop()
+            try:
+                self.p.write(UUID_CONTROL, "08 01", self.link, await_ind=True, timeout_ms=2000)
+            except ProbeError:
+                pass
+        self.results["watt_retest"] = out
+        (self.out / "watt-retest.json").write_text(
+            json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
+        return out
+
+    def step_sim(self) -> dict:
+        """Simulation 0x11 Smoke-Test (braucht guardAllowSim=true)."""
+        head(f"Simulation-Smoke — Steigung {self.args.grade} %")
+        if self.link is None:
+            raise ProbeError("kein Link offen")
+        # Sim freischalten falls noetig
+        cfg = self.p.get("/api/config/get")
+        if not cfg.get("guardAllowSim"):
+            warn("guardAllowSim war aus — aktiviere temporaer")
+            self.p.post("/api/config/save", {"guardAllowSim": True})
+        r = self.p.subscribe(UUID_CONTROL, "notify", self.link)
+        if not r.get("ok"):
+            self.p.subscribe(UUID_CONTROL, "indicate", self.link)
+        self.p.subscribe(UUID_BIKE_DATA, "notify", self.link)
+        self.ask("Treten und Enter fuer Simulationstest.")
+        ka = Keepalive(self.p)
+        ka.start()
+        out = {}
+        try:
+            out["request_control"] = self._cp("00", "Request Control")
+            out["start"] = self._cp("07", "Start or Resume")
+            grade_cdeg = int(round(self.args.grade * 100))  # 0.01 %
+            # wind=0, grade, crr=0, cw=0 — Layout siehe FTMS
+            payload = bytes([
+                0x11,
+                0x00, 0x00,  # wind speed
+                grade_cdeg & 0xFF, (grade_cdeg >> 8) & 0xFF,
+                0x00, 0x00,  # crr / cw often uint8 pair in some stacks — FTMS uses
+            ])
+            # Spec: wind sint16 0.001 m/s, grade sint16 0.01%, crr uint8 0.0001, cw uint8 0.01
+            # Full 7 bytes: op + wind(2) + grade(2) + crr(1) + cw(1)
+            payload = bytes([
+                0x11,
+                0x00, 0x00,
+                grade_cdeg & 0xFF, (grade_cdeg >> 8) & 0xFF,
+                0x00, 0x00,
+            ])
+            hexcmd = ftms.hexs(payload)
+            eff = self.effect(f"sim-grade-{self.args.grade}", hexcmd,
+                              f"Set Sim grade {self.args.grade}%")
+            out["effect"] = eff
+            self.results["effects"].append(eff)
+            out["stop"] = self._cp("08 01", "Stop")
+        finally:
+            ka.stop()
+            try:
+                self.p.write(UUID_CONTROL, "08 01", self.link, await_ind=True, timeout_ms=2000)
+            except ProbeError:
+                pass
+        self.results["sim_test"] = out
+        (self.out / "sim-test.json").write_text(
+            json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
+        return out
+
     def _cp(self, hexcmd: str, label: str) -> dict:
         r = self.p.write(UUID_CONTROL, hexcmd, self.link, await_ind=True, timeout_ms=3000)
         self.drain()
@@ -1082,9 +1170,9 @@ class Runner:
 # ── CLI ──────────────────────────────────────────────────────────────────────
 
 def default_outdir() -> Path:
-    # tools/ liegt im Sondenprojekt, docs/ergometer daneben im Elternordner
-    base = Path(__file__).resolve().parent.parent.parent / "docs" / "ergometer"
-    return base / f"scan-{dt.date.today():%Y%m%d}"
+    # Bevorzugt das Repo-docs-Verzeichnis der Sonde
+    repo = Path(__file__).resolve().parent.parent / "docs" / "ergometer"
+    return repo / f"scan-{dt.date.today():%Y%m%d}"
 
 
 def main(argv=None) -> int:
@@ -1092,8 +1180,9 @@ def main(argv=None) -> int:
         description="BLE-Scan des Ergometers ueber die ESP32-Sonde abfahren")
     ap.add_argument("command",
                     choices=["all", "scan", "gatt", "read", "bikedata", "control",
-                             "dual", "crash", "report", "panic", "status"],
-                    help="all faehrt Schritt 1-4 in einem Durchgang")
+                             "dual", "crash", "report", "panic", "status",
+                             "summary", "live", "suite", "watt", "sim"],
+                    help="all=Schritt 1-4; suite=erweiterte Tests; summary/live=Abruf")
     ap.add_argument("--host", required=False, default="probe.local",
                     help="IP oder Name der Sonde")
     ap.add_argument("--out", type=Path, default=None, help="Ausgabeordner")
@@ -1107,6 +1196,8 @@ def main(argv=None) -> int:
     ap.add_argument("--effect-seconds", type=int, default=15,
                     help="Fenster fuer die Wirkungsmessung vor und nach dem Write")
     ap.add_argument("--minutes", type=int, default=10, help="Dauer fuer dual")
+    ap.add_argument("--grade", type=float, default=2.0,
+                    help="Steigung %% fuer sim-Test (0x11)")
     ap.add_argument("--no-prompt", action="store_true",
                     help="keine Rueckfragen (dann fehlen die Trittphasen)")
     ap.add_argument("--keep-link", action="store_true",
@@ -1118,6 +1209,12 @@ def main(argv=None) -> int:
 
     if args.command == "status":
         print(json.dumps(probe.status(), indent=2, ensure_ascii=False))
+        return 0
+    if args.command == "summary":
+        print(json.dumps(probe.get("/api/probe/summary"), indent=2, ensure_ascii=False))
+        return 0
+    if args.command == "live":
+        print(json.dumps(probe.get("/api/probe/live"), indent=2, ensure_ascii=False))
         return 0
     if args.command == "panic":
         r = probe.panic("runner panic")
@@ -1151,11 +1248,41 @@ def main(argv=None) -> int:
             r.step_bikedata()
         if args.command in ("all", "control"):
             r.step_control()
+        if args.command == "watt":
+            if r.link is None:
+                r.step_gatt()
+            r.step_watt()
+        if args.command == "sim":
+            if r.link is None:
+                r.step_gatt()
+            r.step_sim()
+        if args.command == "suite":
+            if r.link is None:
+                r.step_gatt()
+            r.step_reads()
+            r.step_bikedata()
+            r.step_control()
+            say("\n— Suite: Watt-Nachtest —")
+            r.step_watt()
+            say("\n— Suite: Simulation (optional) —")
+            try:
+                r.step_sim()
+            except ProbeError as e:
+                warn(f"sim uebersprungen: {e}")
+            # Summary der Sonde mit ablegen
+            try:
+                summ = probe.get("/api/probe/summary")
+                (outdir / "probe-summary.json").write_text(
+                    json.dumps(summ, indent=2, ensure_ascii=False), encoding="utf-8")
+                good("probe-summary.json geschrieben")
+            except ProbeError as e:
+                warn(f"summary: {e}")
         if args.command == "dual":
             r.step_dual()
         if args.command == "crash":
             r.step_crash()
-        if args.command in ("all", "report", "control", "bikedata", "dual", "crash"):
+        if args.command in ("all", "report", "control", "bikedata", "dual", "crash",
+                            "watt", "sim", "suite"):
             r.report()
     except KeyboardInterrupt:
         bad("abgebrochen — sende Not-Stop")

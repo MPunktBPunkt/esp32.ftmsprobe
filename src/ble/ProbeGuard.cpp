@@ -180,6 +180,25 @@ void ProbeGuard::check(const uint8_t* in, size_t len, Verdict& v) {
     if (v.modified && log_) log_->addMsg(ProbeLog::Guard, -1, v.reason);
 }
 
+void ProbeGuard::maybeArm(uint8_t opcode) {
+    if (!cfg_) return;
+    if (cfg_->guardDeadmanS == 0) return;
+    const String& mode = cfg_->guardDeadmanMode;
+    if (mode == "off") return;
+    if (opcode == 0x08) {
+        // Stop entschärft
+        disarm();
+        return;
+    }
+    if (mode == "lab") {
+        // Nur Last-Opcodes scharfschalten — Request Control / Start allein nicht
+        if (opcode == 0x04 || opcode == 0x05 || opcode == 0x11) arm();
+        return;
+    }
+    // safe: jeder Write ausser Stop
+    arm();
+}
+
 void ProbeGuard::arm() {
     if (!armed_) {
         armed_ = true;
@@ -216,6 +235,7 @@ void ProbeGuard::appendStatusJson(JsonObject obj) const {
     obj["maxWatt"] = cfg_ ? cfg_->guardMaxWatt : 0;
     obj["maxLevel"] = cfg_ ? cfg_->guardMaxLevel : 0;
     obj["deadmanS"] = cfg_ ? cfg_->guardDeadmanS : 0;
+    obj["deadmanMode"] = cfg_ ? cfg_->guardDeadmanMode.c_str() : "lab";
     obj["armed"] = armed_;
     obj["remainingMs"] = remainingMs();
     obj["writes"] = writes_;

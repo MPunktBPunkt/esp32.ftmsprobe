@@ -36,7 +36,9 @@ public:
     /** Prueft und klemmt ein Kommando fuer den Control Point. */
     void check(const uint8_t* in, size_t len, Verdict& v);
 
-    /** Nach einem tatsaechlich abgesetzten Steuerkommando aufrufen. */
+    /** Nach einem tatsaechlich abgesetzten Steuerkommando aufrufen.
+     *  Scharfschalten haengt vom Deadman-Modus ab (lab/safe/off). */
+    void maybeArm(uint8_t opcode);
     void arm();
     void disarm();
     void keepalive();

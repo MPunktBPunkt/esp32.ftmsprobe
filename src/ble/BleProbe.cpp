@@ -79,7 +79,14 @@ uint8_t BleProbe::resolveAddrType(const char* mac) const {
     return BLE_ADDR_PUBLIC;
 }
 
-void BleProbe::startScan() {
+bool BleProbe::startScan(char* err, size_t errLen) {
+    if (linkCount() > 0 && cfg_ && !cfg_->scanWhileLinked) {
+        if (err)
+            snprintf(err, errLen,
+                     "Scan waehrend Link gesperrt (Config scanWhileLinked=false)");
+        if (log_) log_->addMsg(ProbeLog::Info, -1, "scan blocked: link open");
+        return false;
+    }
     stopScan();
     NimBLEScan* scan = NimBLEDevice::getScan();
     scan->setAdvertisedDeviceCallbacks(&g_advCb, false);
@@ -91,6 +98,7 @@ void BleProbe::startScan() {
     scan->start(0, nullptr, false);  // laeuft bis zum Stop
     if (log_) log_->addMsg(ProbeLog::Info, -1, "scan start");
     updateState();
+    return true;
 }
 
 void BleProbe::stopScan() {
@@ -276,8 +284,9 @@ int BleProbe::connect(const char* mac, int addrTypeHint, char* err, size_t errLe
         return -1;
     }
     l.client->setClientCallbacks(&g_cliCb, false);
-    l.client->setConnectionParams(24, 40, 0, 1000, 80, 60);
-    l.client->setConnectTimeout(10);
+    // Weichere Parameter: weniger Controller-Stress, laengerer Supervision-Timeout
+    l.client->setConnectionParams(40, 80, 0, 400, 80, 60);
+    l.client->setConnectTimeout(12);
     setState(ProbeState::Connecting);
 
     bool ok = l.client->connect(NimBLEAddress(mac, addrType));
@@ -315,6 +324,19 @@ int BleProbe::connect(const char* mac, int addrTypeHint, char* err, size_t errLe
     }
     l.rssi = (int8_t)l.client->getRssi();
 
+    suppressReconnect_ = false;
+    reconnectTries_ = 0;
+    nextReconnectAt_ = 0;
+    if (cfg_) {
+        // Bike merken, wenn noch keines gesetzt oder MAC matcht
+        if (!cfg_->bikeMac.length() || strcasecmp(cfg_->bikeMac.c_str(), l.mac) == 0) {
+            cfg_->bikeMac = l.mac;
+            if (l.name[0]) cfg_->bikeName = l.name;
+            cfg_->bikeAddrType = (int8_t)addrType;
+            cfg_->save();
+        }
+    }
+
     if (log_) {
         char msg[24];
         snprintf(msg, sizeof(msg), "link %d up, %u svc", slot, (unsigned)l.serviceCount);
@@ -346,6 +368,9 @@ void BleProbe::releaseLink(int idx) {
 bool BleProbe::disconnect(int link) {
     if (link < 0 || link >= PROBE_MAX_LINKS || !links_[link].inUse) return false;
     Link& l = links_[link];
+    strncpy(lastDisconnectReason_, "user-disconnect", sizeof(lastDisconnectReason_) - 1);
+    lastDisconnectAt_ = millis();
+    suppressReconnect_ = true;
     if (l.client && l.client->isConnected()) l.client->disconnect();
     // Auf den Callback warten, damit die HTTP-Antwort die Wahrheit sagt
     uint32_t t0 = millis();
@@ -363,6 +388,24 @@ void BleProbe::disconnectAll() {
     for (int i = 0; i < PROBE_MAX_LINKS; i++) {
         if (links_[i].inUse) disconnect(i);
     }
+}
+
+void BleProbe::disconnectAllIntentional() {
+    suppressReconnect_ = true;
+    strncpy(lastDisconnectReason_, "user-disconnect", sizeof(lastDisconnectReason_) - 1);
+    lastDisconnectAt_ = millis();
+    disconnectAll();
+}
+
+int BleProbe::reconnectBike(char* err, size_t errLen) {
+    if (!cfg_ || !cfg_->bikeMac.length()) {
+        if (err) snprintf(err, errLen, "kein bikeMac gemerkt");
+        return -1;
+    }
+    suppressReconnect_ = false;
+    int existing = findLink(cfg_->bikeMac.c_str());
+    if (existing >= 0) return existing;
+    return connect(cfg_->bikeMac.c_str(), cfg_->bikeAddrType, err, errLen);
 }
 
 void BleProbe::onClientDisconnect(NimBLEClient* client) {
@@ -557,15 +600,24 @@ bool BleProbe::readChar(int link, const char* svcKey, const char* chrKey, JsonOb
     size_t len = v.size();
     if (len > kMaxRead) len = kMaxRead;
     String key = probeUuidToKey(c->getUUID());
+    String hx = NetUtil::toHex((const uint8_t*)v.data(), len);
     out["link"] = link;
     out["uuid"] = key;
     const char* label = probeUuidLabel(key.c_str());
     if (label) out["label"] = label;
     out["handle"] = c->getHandle();
     out["len"] = (uint16_t)len;
-    out["hex"] = NetUtil::toHex((const uint8_t*)v.data(), len);
+    out["hex"] = hx;
     appendProps(out, c);
     if (log_) log_->add(ProbeLog::Read, (int8_t)link, key.c_str(), (const uint8_t*)v.data(), len);
+    if (key == "2ACC") {
+        strncpy(featureHex_, hx.c_str(), sizeof(featureHex_) - 1);
+    } else if (key == "2AD6") {
+        strncpy(resistanceRangeHex_, hx.c_str(), sizeof(resistanceRangeHex_) - 1);
+    } else if (key == "2A00" && len > 0 && len < sizeof(deviceNameCache_)) {
+        memcpy(deviceNameCache_, v.data(), len);
+        deviceNameCache_[len] = 0;
+    }
     return true;
 }
 
@@ -722,7 +774,7 @@ bool BleProbe::writeChar(int link, const char* svcKey, const char* chrKey, const
         if (err) snprintf(err, errLen, "write auf %s fehlgeschlagen", key.c_str());
         return false;
     }
-    if (isControl) guard_.arm();
+    if (isControl) guard_.maybeArm(payload[0]);
 
     if (!awaitIndication) return true;
 
@@ -789,6 +841,14 @@ void BleProbe::onNotify(NimBLERemoteCharacteristic* chr, uint8_t* data, size_t l
         l.respLen = (uint8_t)n;
         l.respSeen = true;
     }
+    if (strcasecmp(key.c_str(), PROBE_UUID_INDOOR_BIKE) == 0 || key == "2AD2") {
+        FtmsIbdSample s;
+        if (ftmsParseIndoorBike(data, len, s)) {
+            s.atMs = millis();
+            s.seq = ++liveIbdCount_;
+            liveIbd_ = s;
+        }
+    }
 }
 
 // ── Not-Stop ────────────────────────────────────────────────────────────────
@@ -820,7 +880,19 @@ void BleProbe::panic(const char* reason) {
     }
 
     guard_.disarm();
-    disconnectAll();
+    suppressReconnect_ = true;
+    strncpy(lastDisconnectReason_, reason && reason[0] ? reason : "panic",
+            sizeof(lastDisconnectReason_) - 1);
+    lastDisconnectAt_ = millis();
+    // Direkt trennen ohne erneut suppress zu setzen
+    for (int i = 0; i < PROBE_MAX_LINKS; i++) {
+        if (!links_[i].inUse) continue;
+        Link& l = links_[i];
+        if (l.client && l.client->isConnected()) l.client->disconnect();
+        uint32_t t0 = millis();
+        while (!l.dropped && millis() - t0 < 800) delay(10);
+        releaseLink(i);
+    }
     stopScan();
     updateState();
 }
@@ -832,17 +904,49 @@ void BleProbe::loop() {
         Link& l = links_[i];
         if (!l.inUse || !l.dropped) continue;
         linkLosses_++;
+        strncpy(lastDisconnectReason_, "peer-drop", sizeof(lastDisconnectReason_) - 1);
+        lastDisconnectAt_ = millis();
         if (log_) {
-            char msg[24];
+            char msg[28];
             snprintf(msg, sizeof(msg), "link %d lost (rssi %d)", i, (int)l.rssi);
             log_->addMsg(ProbeLog::Err, (int8_t)i, msg);
         }
         Serial.printf("[PROBE] link %d lost\n", i);
         releaseLink(i);
+        if (cfg_ && cfg_->autoReconnect && !suppressReconnect_) {
+            nextReconnectAt_ = millis() + 3000UL;
+        }
     }
 
     if (guard_.expired()) {
         panic("deadman: kein Keepalive");
+    }
+
+    // Auto-Reconnect auf gemerktes Bike
+    if (cfg_ && cfg_->autoReconnect && !suppressReconnect_ && cfg_->bikeMac.length() &&
+        linkCount() == 0 && !scanning_ && nextReconnectAt_ && millis() >= nextReconnectAt_) {
+        nextReconnectAt_ = millis() + 8000UL;
+        if (reconnectTries_ < 8) {
+            reconnectTries_++;
+            char err[64] = {0};
+            if (log_) {
+                char msg[36];
+                snprintf(msg, sizeof(msg), "reconnect try %u", (unsigned)reconnectTries_);
+                log_->addMsg(ProbeLog::Info, -1, msg);
+            }
+            int link = connect(cfg_->bikeMac.c_str(), cfg_->bikeAddrType, err, sizeof(err));
+            if (link >= 0) {
+                // Standard-Abos fuer Laborarbeit
+                JsonDocument tmp;
+                char e2[64] = {0};
+                subscribe(link, nullptr, "2AD2", false, true, tmp.to<JsonObject>(), e2, sizeof(e2));
+                tmp.clear();
+                subscribe(link, nullptr, "2AD9", false, true, tmp.to<JsonObject>(), e2, sizeof(e2));
+            } else if (reconnectTries_ >= 8) {
+                nextReconnectAt_ = 0;
+                if (log_) log_->addMsg(ProbeLog::Err, -1, "reconnect give up");
+            }
+        }
     }
 
     static uint32_t lastRssi = 0;
@@ -857,6 +961,47 @@ void BleProbe::loop() {
     }
 }
 
+void BleProbe::appendLiveJson(JsonObject obj) const {
+    ftmsIbdToJson(liveIbd_, obj);
+    obj["packets"] = liveIbdCount_;
+}
+
+void BleProbe::appendSummaryJson(JsonObject obj) const {
+    obj["version"] = FW_VERSION;
+    obj["board"] = PROBE_BOARD_LABEL;
+    obj["state"] = probeStateName(state_);
+    obj["linkCount"] = linkCount();
+    obj["linkLosses"] = linkLosses_;
+    obj["verdict"] = featureHex_[0] ? "ftms-seen" : (linkCount() ? "linked" : "idle");
+    if (cfg_) {
+        obj["bikeMac"] = cfg_->bikeMac;
+        obj["bikeName"] = cfg_->bikeName;
+        obj["hrMac"] = cfg_->hrMac;
+        obj["deadmanMode"] = cfg_->guardDeadmanMode;
+        obj["autoReconnect"] = cfg_->autoReconnect;
+    }
+    if (deviceNameCache_[0]) obj["deviceName"] = deviceNameCache_;
+    if (featureHex_[0]) obj["featureHex"] = featureHex_;
+    if (resistanceRangeHex_[0]) obj["resistanceRangeHex"] = resistanceRangeHex_;
+    if (lastPanic_[0]) {
+        obj["lastPanic"] = lastPanic_;
+        obj["lastPanicAgoMs"] = millis() - lastPanicAt_;
+    }
+    if (lastDisconnectReason_[0]) {
+        obj["lastDisconnect"] = lastDisconnectReason_;
+        obj["lastDisconnectAgoMs"] = millis() - lastDisconnectAt_;
+    }
+    obj["suppressReconnect"] = suppressReconnect_;
+    obj["reconnectTries"] = reconnectTries_;
+    ftmsIbdToJson(liveIbd_, obj["live"].to<JsonObject>());
+    obj["livePackets"] = liveIbdCount_;
+    JsonArray h = obj["hints"].to<JsonArray>();
+    h.add("GET /api/probe/summary");
+    h.add("GET /api/probe/live");
+    h.add("GET /api/probe/export");
+    h.add("docs/ergometer/ERGEBNISBERICHT.md");
+}
+
 void BleProbe::appendStatusJson(JsonObject obj) const {
     obj["state"] = probeStateName(state_);
     obj["scanning"] = scanning_;
@@ -865,12 +1010,20 @@ void BleProbe::appendStatusJson(JsonObject obj) const {
     obj["linkCount"] = linkCount();
     obj["maxLinks"] = (int)PROBE_MAX_LINKS;
     obj["linkLosses"] = linkLosses_;
+    obj["autoReconnect"] = cfg_ ? cfg_->autoReconnect : false;
+    obj["suppressReconnect"] = suppressReconnect_;
+    obj["scanWhileLinked"] = cfg_ ? cfg_->scanWhileLinked : false;
+    if (lastDisconnectReason_[0]) {
+        obj["lastDisconnect"] = lastDisconnectReason_;
+        obj["lastDisconnectAgoMs"] = millis() - lastDisconnectAt_;
+    }
     if (lastPanic_[0]) {
         obj["lastPanic"] = lastPanic_;
         obj["lastPanicAgoMs"] = millis() - lastPanicAt_;
     }
     linksToJson(obj["links"].to<JsonArray>());
     guard_.appendStatusJson(obj["guard"].to<JsonObject>());
+    ftmsIbdToJson(liveIbd_, obj["live"].to<JsonObject>());
 }
 
 void BleProbe::appendIoValues(JsonObject ios) const {

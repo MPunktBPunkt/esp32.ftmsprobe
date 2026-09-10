@@ -9,6 +9,7 @@ Checkliste per HTTP ab und legt Rohbytes plus ausgefuellten Bericht in
 [docs/ergometer/ERGEBNISBERICHT.md](docs/ergometer/ERGEBNISBERICHT.md) —
 Ausgang 1 (Standard-FTMS, Control offen). Rohdaten unter
 [docs/ergometer/scan-20260910/](docs/ergometer/scan-20260910/).
+Erweiterte Tests & Abruf: [docs/ergometer/TESTS.md](docs/ergometer/TESTS.md).
 
 Kein Wegwurf-Code. Die Firmware ist die erste Iteration der BLE-Schicht von
 `esp32.ergo`; `BleProbe` wird dort zu `BleCentral` plus `FtmsClient`, und
@@ -115,9 +116,11 @@ kein Ergometer unter Last stehen lassen, waehrend jemand darauf sitzt.
 - **Klemmen**: Zielleistung auf `guardMaxWatt` (Vorgabe 150 W), Zielstufe auf
   `guardMaxLevel` (Vorgabe 12). Beide Lesarten von `0x04` werden geklemmt. Die
   Klemmen selbst sind geklemmt, damit der Limiter nicht per API aushebelbar ist.
-- **Deadman**: nach dem ersten Steuerkommando muss ein Keepalive kommen.
-  Bleibt es `guardDeadmanS` Sekunden aus (Vorgabe 20), sendet die Sonde selbst
-  `08 01` und trennt.
+- **Deadman**: Modus `lab` (Vorgabe) schaerft erst bei Last-Opcodes `04`/`05`/`11`;
+  `safe` schaerft bei jedem Steuerkommando; `off` deaktiviert. Bleibt Keepalive
+  `guardDeadmanS` Sekunden aus (Vorgabe 20), sendet die Sonde `08 01` und trennt.
+- **Kein Scan waehrend Link** (Config `scanWhileLinked`), **Auto-Reconnect** auf
+  gemerktes Bike (`autoReconnect`).
 - **Not-Stop** per `POST /api/probe/panic` und als fester Knopf in der Web-UI —
   nicht per Config sperrbar.
 - Der Hub-Watchdog ist hier standardmaessig **aus**: ein Reboot mitten in einer
@@ -151,15 +154,20 @@ sind Varianten ohne Reflash testbar.
 | POST | `/api/probe/keepalive` | Deadman zuruecksetzen |
 | POST | `/api/probe/panic` | `08 01`, trennen, Scan aus |
 | POST | `/api/probe/remember` `{role, mac, name}` | Bike oder Gurt merken |
+| POST | `/api/probe/reconnect` | Auto-Reconnect auf gemerktes Bike |
+| GET | `/api/probe/live` | Dekodiertes Indoor-Bike-Data (`0x2AD2`) |
+| GET | `/api/probe/summary` | Kompakt: Link, Live, Feature-Hex, Disconnect-Grund, Hints |
+| GET | `/api/probe/export` | NDJSON-Header + Log-Hinweis |
 | POST | `/api/probe/crash` `{confirm:"crash", mode}` | Crash-Test |
 
 Dazu die Familienrouten: `/api/status`, `/api/config/get`, `/api/config/save`,
 `/api/system/restart`, `/events` (SSE), `/ota-upload`.
 
-`awaitIndication` verlangt, dass Indications auf `0x2AD9` vorher aktiv sind —
-sonst kommt keine Antwort und der Aufruf sagt das statt in einen Timeout zu
-laufen. Das ist die haeufigste Ursache dafuer, dass Request Control wie ein
-Fehler aussieht.
+Ergebnis-Abruf und erweiterte Tests: [`docs/ergometer/TESTS.md`](docs/ergometer/TESTS.md).
+
+`awaitIndication` akzeptiert Notify oder Indicate auf `0x2AD9` (dieses Bike
+nutzt Notify). Ohne vorheriges Subscribe kommt keine Antwort — der Aufruf sagt
+das statt in einen Timeout zu laufen.
 
 ## Build
 
