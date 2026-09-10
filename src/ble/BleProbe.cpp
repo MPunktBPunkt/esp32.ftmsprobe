@@ -344,7 +344,20 @@ int BleProbe::connect(const char* mac, int addrTypeHint, char* err, size_t errLe
     }
     Serial.printf("[PROBE] link %d %s type=%u services=%u\n", slot, l.mac, (unsigned)addrType,
                   (unsigned)l.serviceCount);
+    // Vorherigen FTMS-Cache verwerfen — sonst zeigt Summary/Log noch Bike-Daten
+    // an einem ganz anderen Peripheral (z. B. Soundbar).
+    featureHex_[0] = 0;
+    resistanceRangeHex_[0] = 0;
+    powerRangeHex_[0] = 0;
+    powerRangeMissing_ = true;
+    deviceNameCache_[0] = 0;
+    liveIbd_ = FtmsIbdSample{};
+    liveIbdCount_ = 0;
     cacheFtmsProfile(slot);
+    // Auto-Reconnect nur fuer das gemerkte Bike, nicht nach Connect auf Fremdgeraete
+    if (cfg_ && cfg_->bikeMac.length() && strcasecmp(cfg_->bikeMac.c_str(), l.mac) != 0) {
+        suppressReconnect_ = true;
+    }
     updateState();
     return slot;
 }

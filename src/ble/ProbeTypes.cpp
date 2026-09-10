@@ -109,6 +109,8 @@ static const UuidLabel kLabels[] = {
     {"2A28", "Software Revision"},
     {"2A00", "Device Name"},
     {"2A01", "Appearance"},
+    {"2AA6", "Central Address Resolution"},
+    {"FEA0", "Google (Member UUID)"},
     {"2902", "CCCD"},
     {"2901", "User Description"},
     {"FFF0", "Vendor (FitShow-verdaechtig)"},
