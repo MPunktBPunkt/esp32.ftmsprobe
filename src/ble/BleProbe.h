@@ -89,6 +89,8 @@ public:
     bool dumpGatt(int link, JsonObject out, char* err, size_t errLen);
     bool readChar(int link, const char* svcKey, const char* chrKey, JsonObject out, char* err,
                   size_t errLen);
+    /** Liest alle Characteristics mit Read-Property; out.reads[] mit hex+text. */
+    bool readAllReadable(int link, JsonObject out, char* err, size_t errLen);
     bool subscribe(int link, const char* svcKey, const char* chrKey, bool indicate, bool enable,
                    JsonObject out, char* err, size_t errLen);
     bool writeChar(int link, const char* svcKey, const char* chrKey, const uint8_t* data,

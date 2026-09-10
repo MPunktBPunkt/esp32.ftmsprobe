@@ -644,6 +644,25 @@ bool BleProbe::dumpGatt(int link, JsonObject out, char* err, size_t errLen) {
     return true;
 }
 
+static void appendAsciiText(JsonObject out, const uint8_t* data, size_t len) {
+    // Nur setzen, wenn der Inhalt groesstenteils druckbarer Text ist
+    // (Device Name, Manufacturer, Firmware …). Reine Binaerwerte wie 2ACC bleiben Hex.
+    while (len > 0 && data[len - 1] == 0) len--;
+    if (len == 0 || len > 96) return;
+    size_t good = 0;
+    for (size_t i = 0; i < len; i++) {
+        if (data[i] >= 32 && data[i] <= 126) good++;
+    }
+    if (good * 4 < len * 3) return;  // < 75 % druckbar
+    char buf[97];
+    for (size_t i = 0; i < len; i++) {
+        uint8_t b = data[i];
+        buf[i] = (b >= 32 && b <= 126) ? (char)b : '.';
+    }
+    buf[len] = 0;
+    out["text"] = buf;
+}
+
 bool BleProbe::readChar(int link, const char* svcKey, const char* chrKey, JsonObject out,
                         char* err, size_t errLen) {
     if (!linkValid(link)) {
@@ -672,6 +691,7 @@ bool BleProbe::readChar(int link, const char* svcKey, const char* chrKey, JsonOb
     out["handle"] = c->getHandle();
     out["len"] = (uint16_t)len;
     out["hex"] = hx;
+    appendAsciiText(out, (const uint8_t*)v.data(), len);
     appendProps(out, c);
     if (log_) log_->add(ProbeLog::Read, (int8_t)link, key.c_str(), (const uint8_t*)v.data(), len);
     if (key == "2ACC") {
@@ -684,6 +704,67 @@ bool BleProbe::readChar(int link, const char* svcKey, const char* chrKey, JsonOb
     } else if (key == "2A00" && len > 0 && len < sizeof(deviceNameCache_)) {
         memcpy(deviceNameCache_, v.data(), len);
         deviceNameCache_[len] = 0;
+    }
+    return true;
+}
+
+bool BleProbe::readAllReadable(int link, JsonObject out, char* err, size_t errLen) {
+    if (!linkValid(link)) {
+        if (err) snprintf(err, errLen, "link %d nicht verbunden", link);
+        return false;
+    }
+    Link& l = links_[link];
+    std::vector<NimBLERemoteService*>* svcs = l.client->getServices(false);
+    if (!svcs || svcs->empty()) {
+        discoverAll(l);
+        svcs = l.client->getServices(false);
+    }
+    if (!svcs) {
+        if (err) snprintf(err, errLen, "keine Services gefunden");
+        return false;
+    }
+
+    out["link"] = link;
+    out["mac"] = l.mac;
+    JsonArray reads = out["reads"].to<JsonArray>();
+    uint16_t okCount = 0;
+    uint16_t failCount = 0;
+    uint16_t skipCount = 0;
+
+    for (auto svc : *svcs) {
+        if (!svc) continue;
+        String skey = probeUuidToKey(svc->getUUID());
+        std::vector<NimBLERemoteCharacteristic*>* chrs = svc->getCharacteristics(false);
+        if (!chrs) continue;
+        for (auto c : *chrs) {
+            if (!c) continue;
+            if (!c->canRead()) {
+                skipCount++;
+                continue;
+            }
+            String ckey = probeUuidToKey(c->getUUID());
+            JsonObject ro = reads.add<JsonObject>();
+            char e2[80] = {0};
+            if (readChar(link, skey.c_str(), ckey.c_str(), ro, e2, sizeof(e2))) {
+                ro["ok"] = true;
+                okCount++;
+            } else {
+                ro["ok"] = false;
+                ro["uuid"] = ckey;
+                ro["error"] = e2[0] ? e2 : "read fehlgeschlagen";
+                failCount++;
+            }
+        }
+    }
+
+    out["okCount"] = okCount;
+    out["failCount"] = failCount;
+    out["skipCount"] = skipCount;
+    if (log_) {
+        char msg[36];
+        snprintf(msg, sizeof(msg), "read-all %u ok %u fail", (unsigned)okCount,
+                 (unsigned)failCount);
+        log_->addMsg(ProbeLog::Info, (int8_t)link, msg);
     }
     return true;
 }

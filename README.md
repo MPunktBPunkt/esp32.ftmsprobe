@@ -146,7 +146,8 @@ sind Varianten ohne Reflash testbar.
 | POST | `/api/probe/connect` `{mac, addrType?, role?}` | verbinden, Antwort enthaelt den GATT-Dump |
 | POST | `/api/probe/disconnect` `{link\|mac\|all}` | trennen |
 | GET | `/api/probe/gatt?link=` | Attributbaum mit Handles, Properties, Deskriptoren |
-| POST | `/api/probe/read` `{link, uuid, service?}` | Read als Hex |
+| POST | `/api/probe/read` `{link, uuid, service?}` | Read als Hex (+ `text` bei ASCII) |
+| POST | `/api/probe/read-all` `{link}` | alle lesbaren Characteristics |
 | POST | `/api/probe/subscribe` `{link, uuid, mode, enable}` | notify oder indicate |
 | POST | `/api/probe/write` `{link, uuid, hex, awaitIndication, timeoutMs}` | Write, Antwort-Indication zugeordnet |
 | GET | `/api/probe/log?since=&max=&phase=` | NDJSON, eine Zeile je Paket |

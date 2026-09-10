@@ -466,6 +466,24 @@ void App::registerProbeRoutes() {
         NetUtil::sendJson(server, 200, doc);
     });
 
+    server.on("/api/probe/read-all", HTTP_POST, [this]() {
+        JsonDocument body;
+        if (!NetUtil::readJsonBodyOrEmpty(server, body)) return;
+        char err[80] = {0};
+        int link = resolveLink(body.as<JsonVariantConst>(), err, sizeof(err));
+        if (link < 0) {
+            NetUtil::sendError(server, 400, err);
+            return;
+        }
+        JsonDocument doc;
+        if (!probe.readAllReadable(link, doc.to<JsonObject>(), err, sizeof(err))) {
+            NetUtil::sendError(server, 400, err);
+            return;
+        }
+        doc["ok"] = true;
+        NetUtil::sendJson(server, 200, doc);
+    });
+
     server.on("/api/probe/subscribe", HTTP_POST, [this]() {
         JsonDocument body;
         if (!NetUtil::readJsonBody(server, body)) return;

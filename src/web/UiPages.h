@@ -123,6 +123,7 @@ border-radius:6px;padding:8px;height:60vh;overflow:auto;white-space:pre-wrap;wor
   </div>
   <div class="card"><h2>Attribute</h2>
     <div class="row"><button onclick="loadGatt()">GATT lesen</button>
+      <button class="p" onclick="readAll()">Alle Werte lesen</button>
       <span class="hint" id="gatt-info"></span></div>
     <div id="gatt" style="margin-top:10px"></div>
   </div>
@@ -369,10 +370,30 @@ function renderGatt(g){
     return h+'</tbody></table></div>';
   }).join('');
 }
-function rd(uuid){post('/api/probe/read',{link:curLink,uuid:uuid}).then(function(r){
+function formatRead(r){
+  if(!r||r.ok===false) return 'Fehler: '+esc((r&&r.error)||'?');
+  var s=esc(r.hex||'')+'  ('+(r.len||0)+' Byte)';
+  if(r.text) s+='  \u201e'+esc(r.text)+'\u201c';
+  return s;
+}
+function showRead(uuid,r){
   var row=document.getElementById('v-'+uuid);if(!row)return;row.hidden=false;
-  row.firstChild.textContent=r.ok?(r.hex+'  ('+r.len+' Byte)'):('Fehler: '+(r.error||'?'));
-  row.firstChild.style.color=r.ok?'var(--ok)':'var(--no)'})}
+  row.firstChild.innerHTML=formatRead(r);
+  row.firstChild.style.color=(r&&r.ok!==false)?'var(--ok)':'var(--no)';
+}
+function rd(uuid){post('/api/probe/read',{link:curLink,uuid:uuid}).then(function(r){
+  showRead(uuid,r)})}
+function readAll(){
+  if(curLink===null){toast('gatt-info','kein Link',1);return}
+  toast('gatt-info','lese alle Characteristics…');
+  post('/api/probe/read-all',{link:curLink}).then(function(r){
+    if(r.ok===false){toast('gatt-info',r.error||'read-all fehlgeschlagen',1);return}
+    (r.reads||[]).forEach(function(x){if(x.uuid)showRead(x.uuid,x)});
+    toast('gatt-info',(r.okCount||0)+' gelesen'
+      +(r.failCount?(', '+r.failCount+' Fehler'):'')
+      +(r.skipCount?(', '+r.skipCount+' ohne Read'):''));
+  }).catch(function(e){toast('gatt-info',String(e),1)});
+}
 function sub(uuid,mode){post('/api/probe/subscribe',{link:curLink,uuid:uuid,mode:mode,enable:true})
   .then(function(r){cpOut((r.ok?'Abo ':'Abo fehlgeschlagen ')+uuid+' '+mode
     +(r.ok?'':' — '+(r.error||'')),!r.ok)})}
