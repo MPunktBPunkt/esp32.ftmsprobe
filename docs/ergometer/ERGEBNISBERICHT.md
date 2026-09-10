@@ -3,6 +3,7 @@
 **Datum:** 2026-09-10  
 **Sonde:** `esp32.ftmsprobe` v0.1.2 auf ESP32-S3 (`192.168.178.88`, MAC `68B6B329339C`)  
 **Abruf:** `GET /api/probe/summary` · `GET /api/probe/live` · `GET /api/probe/export` · siehe [`TESTS.md`](TESTS.md)  
+**Datenfelder (lesbar):** [`DATEN.md`](DATEN.md)  
 **Bike:** Hammer Varon XTR II, BLE-Name **TC174**, MAC `c2:32:a5:1e:bf:b5`  
 **Ausgang:** **1 — Standard-FTMS mit offenem Control Point**  
 **Rohdaten:** [`scan-20260910/`](scan-20260910/)
@@ -138,6 +139,8 @@ Nicht vorhanden.
 ---
 
 ## 5. Indoor Bike Data (`0x2AD2`)
+
+Lesbare Feld-für-Feld-Beschreibung inkl. JSON-Beispielen: **[`DATEN.md`](DATEN.md)**.
 
 ### Flags (konstant)
 

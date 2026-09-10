@@ -9,6 +9,7 @@ Checkliste per HTTP ab und legt Rohbytes plus ausgefuellten Bericht in
 [docs/ergometer/ERGEBNISBERICHT.md](docs/ergometer/ERGEBNISBERICHT.md) —
 Ausgang 1 (Standard-FTMS, Control offen). Rohdaten unter
 [docs/ergometer/scan-20260910/](docs/ergometer/scan-20260910/).
+**Datenfelder erklärt:** [docs/ergometer/DATEN.md](docs/ergometer/DATEN.md).
 Erweiterte Tests & Abruf: [docs/ergometer/TESTS.md](docs/ergometer/TESTS.md).
 
 Kein Wegwurf-Code. Die Firmware ist die erste Iteration der BLE-Schicht von

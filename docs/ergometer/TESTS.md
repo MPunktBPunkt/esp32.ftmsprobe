@@ -23,7 +23,8 @@ curl -o probe-export.ndjson "http://192.168.178.88/api/probe/export"
 
 Web-UI: Tab **Live** → Summary JSON / Export.
 
-Laborbericht: [`ERGEBNISBERICHT.md`](ERGEBNISBERICHT.md)
+Laborbericht: [`ERGEBNISBERICHT.md`](ERGEBNISBERICHT.md)  
+Datenfelder: [`DATEN.md`](DATEN.md)
 
 ## Empfohlene erweiterte Tests
 
